@@ -1,12 +1,60 @@
 apply plugin: 'java'
+apply plugin: 'idea'
 
 sourceCompatibility = JavaVersion.VERSION_1_6
-version = '6.2.0.1'
+
+ext {
+	tasksGroup = 'SDK Builder'
+}
 
 repositories {
 	mavenLocal()
 	mavenCentral()
+
+	maven {
+		url 'https://repository.liferay.com/nexus/content/groups/liferay-ce'
+	}
+}
+
+configurations {
+	formatter
 }
 
 dependencies {
+	compile group: 'com.liferay.mobile', name: 'liferay-sdk-builder', version: '6.2.0.+'
+
+	formatter group: 'com.liferay.portal', name: 'portal-impl', version: '6.2.0-ga1'
+	formatter group: 'com.liferay.portal', name: 'portal-service', version: '6.2.0-ga1'
+	formatter group: 'com.liferay.portal', name: 'util-java', version: '6.2.0-ga1'
+	formatter group: 'dom4j', name: 'dom4j', version: '1.6.1'
+	formatter group: 'org.apache.ant', name: 'ant', version: '1.8.2'
+}
+
+task format(type: JavaExec) {
+	group = tasksGroup
+	description = 'Runs Liferay Source Formatter to format files within src/main/java.'
+	main = 'com.liferay.portal.tools.sourceformatter.SourceFormatter'
+	classpath = configurations.formatter
+	workingDir = 'src/main/java'
+}
+
+task generate(type: JavaExec) {
+	group = tasksGroup
+	description = 'Runs Liferay SDK Builder with arguments set in gradle.properties.'
+	main = 'com.liferay.mobile.sdk.SDKBuilder'
+	classpath = configurations.compile
+
+	args = [
+		"platforms=$platforms",
+		"url=$url",
+		"context=$context",
+		"filter=$filter",
+		"packageName=$packageName",
+		"portalVersion=$portalVersion",
+		"destination=$destination"
+	]
+}
+
+task wrapper(type: Wrapper) {
+	gradleVersion = '1.11'
 }
