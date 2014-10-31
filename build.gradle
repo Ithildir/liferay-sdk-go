@@ -1,11 +1,6 @@
 apply plugin: 'java'
-apply plugin: 'idea'
 
 sourceCompatibility = JavaVersion.VERSION_1_6
-
-ext {
-	tasksGroup = 'SDK Builder'
-}
 
 repositories {
 	mavenLocal()
@@ -31,7 +26,7 @@ dependencies {
 }
 
 task format(type: JavaExec) {
-	group = tasksGroup
+	group = project.description
 	description = 'Runs Liferay Source Formatter to format files within src/main/java.'
 	main = 'com.liferay.portal.tools.sourceformatter.SourceFormatter'
 	classpath = configurations.formatter
@@ -39,10 +34,10 @@ task format(type: JavaExec) {
 }
 
 task generate(type: JavaExec) {
-	group = tasksGroup
+	group = project.description
 	description = 'Runs Liferay SDK Builder with arguments set in gradle.properties.'
 	main = 'com.liferay.mobile.sdk.SDKBuilder'
-	classpath = configurations.compile
+	classpath = configurations.compile + project.runtimeClasspath
 
 	args = [
 		"platforms=$platforms",
@@ -55,6 +50,4 @@ task generate(type: JavaExec) {
 	]
 }
 
-task wrapper(type: Wrapper) {
-	gradleVersion = '1.11'
-}
+apply from: 'maven.gradle'

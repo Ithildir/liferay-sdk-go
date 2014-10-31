@@ -1,0 +1,66 @@
+apply plugin: 'maven'
+apply plugin: 'signing'
+
+install {
+	repositories.mavenInstaller {
+		pom.groupId = project.group
+
+		pom.project {
+			name project.description
+			description project.description
+			url 'https://www.liferay.com/community/liferay-projects/liferay-mobile-sdk/overview'
+			licenses {
+				license {
+					name 'LGPL 2.1'
+					url 'http://opensource.org/licenses/lgpl-2.1.php'
+					distribution 'repo'
+				}
+			}
+			scm {
+				url 'https://github.com/brunofarache/liferay-sdk-builder-sample'
+				connection 'scm:git:git://github.com/brunofarache/liferay-sdk-builder-sample.git'
+			}
+			developers {
+				developer {
+					id 'brunofarache'
+					name 'Bruno Farache'
+					email 'bruno.farache@liferay.com'
+				}
+			}
+		}
+	}
+}
+
+task jarSources(type: Jar, dependsOn: classes) {
+	classifier = 'sources'
+	from sourceSets.main.allSource
+}
+
+task jarJavadoc(type: Jar, dependsOn: javadoc) {
+	classifier = 'javadoc'
+	from javadoc.destinationDir
+}
+
+artifacts {
+	archives jarSources
+	archives jarJavadoc
+}
+
+signing {
+	sign configurations.archives
+}
+
+task signPom(type: Sign, dependsOn: install) {
+	sign file('build/poms/pom-default.xml')
+}
+
+task publish(type: Copy, dependsOn: signPom) {
+	group = project.description
+	description = 'Prepares artifacts for publishing to Maven Central.'
+	from 'build/poms'
+	into 'build/libs'
+
+	rename { String name ->
+		name.replace('pom-default.xml', "${archivesBaseName}-${version}.pom")
+	}
+}
