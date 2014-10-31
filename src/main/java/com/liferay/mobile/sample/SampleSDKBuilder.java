@@ -29,7 +29,7 @@ public class SampleSDKBuilder extends BaseBuilder {
 		throws Exception {
 
 		System.out.println(
-			"I'm just a dummy SDK Builder, I don' generate anything.");
+			"I'm just a dummy SDK Builder, I don't generate anything.");
 	}
 
 }
