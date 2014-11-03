@@ -37,7 +37,7 @@ task generate(type: JavaExec) {
 	group = project.description
 	description = 'Runs Liferay SDK Builder with arguments set in gradle.properties.'
 	main = 'com.liferay.mobile.sdk.SDKBuilder'
-	classpath = configurations.compile + project.runtimeClasspath
+	classpath = project.runtimeClasspath + configurations.compile
 
 	args = [
 		"platforms=$platforms",
