@@ -25,6 +25,11 @@ dependencies {
 	formatter group: 'org.apache.ant', name: 'ant', version: '1.8.2'
 }
 
+
+configurations {
+	compile.exclude module: 'liferay-sdk-builder-sample'
+}
+
 task format(type: JavaExec) {
 	group = project.description
 	description = 'Runs Liferay Source Formatter to format files within src/main/java.'

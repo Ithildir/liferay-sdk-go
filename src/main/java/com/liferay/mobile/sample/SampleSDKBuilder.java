@@ -15,7 +15,10 @@
 package com.liferay.mobile.sample;
 
 import com.liferay.mobile.sdk.BaseBuilder;
+import com.liferay.mobile.sdk.http.Action;
 import com.liferay.mobile.sdk.http.Discovery;
+
+import java.util.List;
 
 /**
  * @author Bruno Farache
@@ -24,8 +27,8 @@ public class SampleSDKBuilder extends BaseBuilder {
 
 	@Override
 	public void build(
-			Discovery discovery, String packageName, int version, String filter,
-			String destination)
+			Discovery discovery, List<Action> actions, String packageName,
+			int version, String filter, String destination)
 		throws Exception {
 
 		System.out.println(
