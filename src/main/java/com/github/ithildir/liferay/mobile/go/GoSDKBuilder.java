@@ -18,7 +18,6 @@ import com.liferay.mobile.sdk.BaseBuilder;
 import com.liferay.mobile.sdk.http.Action;
 import com.liferay.mobile.sdk.http.Discovery;
 import com.liferay.mobile.sdk.util.CharPool;
-import com.liferay.mobile.sdk.util.LanguageUtil;
 import com.liferay.mobile.sdk.util.Validator;
 import com.liferay.mobile.sdk.velocity.VelocityUtil;
 
@@ -201,7 +200,6 @@ public class GoSDKBuilder extends BaseBuilder {
 		context.put(ESCAPE_TOOL, new EscapeTool());
 		context.put(LANGUAGE_UTIL, goUtil);
 		context.put(PACKAGE, filter);
-		context.put(VOID, LanguageUtil.VOID);
 
 		return context;
 	}
