@@ -12,7 +12,7 @@
  * details.
  */
 
-package com.liferay.mobile.sample;
+package com.github.ithildir.liferay.mobile.go;
 
 import com.liferay.mobile.sdk.BaseBuilder;
 import com.liferay.mobile.sdk.http.Action;
@@ -23,7 +23,7 @@ import java.util.List;
 /**
  * @author Bruno Farache
  */
-public class SampleSDKBuilder extends BaseBuilder {
+public class GoSDKBuilder extends BaseBuilder {
 
 	@Override
 	public void build(
