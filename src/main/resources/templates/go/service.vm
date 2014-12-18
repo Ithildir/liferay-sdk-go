@@ -1,3 +1,30 @@
+#macro(goMethodSignature $action)
+	#set ($returnType = $languageUtil.getReturnType($action.response))
+	#set ($methodName = $languageUtil.getMethodName($action.path))
+	#set ($parameters = $action.parameters)
+	#set ($parameterList = "")
+
+	#foreach ($parameter in $parameters)
+		#set ($parameterName = $parameter.name)
+		#set ($parameterType = $languageUtil.getType($parameter.type))
+		#set ($parameterList = "$parameterList$parameterName $parameterType")
+
+		#if ($foreach.hasNext)
+			#set ($parameterList = "$parameterList, ")
+		#end
+	#end
+
+	#if ($returnType == $VOID)
+		#set ($funcReturn = "error")
+	#else
+		#set ($funcReturn = "($returnType, error)")
+	#end
+
+	func (s *Service) $methodName($parameterList) $funcReturn {
+#end
+
+#set ($context = $discovery.context)
+
 // Copyright (c) 2014 Andrea Di Giorgi. All rights reserved.
 //
 // This library is free software; you can redistribute it and/or modify it under
@@ -18,7 +45,6 @@ package $package
 
 import (
 ##t	"github.com/ithildir/liferay-sdk-go/liferay"
-##t	"github.com/ithildir/liferay-sdk-go/liferay/internal"
 )
 
 ##n
@@ -32,3 +58,47 @@ type Service struct {
 func NewService(s liferay.Session) *Service {
 ##t	return &Service{s}
 }
+
+##n
+
+#foreach ($action in $actions)
+	#set ($parameters = $action.parameters)
+
+	#goMethodSignature($action)
+
+	##t	_params := make(map[string]interface{})
+
+	##n
+
+	#set ($invokeMethod = "invoke")
+
+	#foreach ($parameter in $parameters)
+		#set ($parameterName = $parameter.name)
+		#set ($parameterType = $languageUtil.getType($parameter.type))
+
+		#if ($parameterType == $IO_READER)
+			#set ($invokeMethod = "upload")
+		#end
+
+		#set ($parameterValue = $parameterName)
+
+		#if ($parameterType == $JSON_OBJECT_WRAPPER)
+			##t	liferay.MangleObjectWrapper(_params, ${esc.q}$parameterName${esc.q}, ${esc.q}$languageUtil.getJSONWrapperClassName($parameter.type)${esc.q}, $parameterValue)
+		#else
+			##t	_params[${esc.q}$parameterName${esc.q}] = $parameterValue
+		#end
+
+		#if (!$foreach.hasNext)
+			##n
+		#end
+	#end
+
+	##t	_cmd := map[string]interface{}{
+	##t		${esc.q}$context$action.path${esc.q}: _params,
+	##t	}
+
+	}
+
+	##n
+
+#end

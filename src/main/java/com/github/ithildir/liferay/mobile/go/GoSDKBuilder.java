@@ -198,8 +198,10 @@ public class GoSDKBuilder extends BaseBuilder {
 		context.put(ACTIONS, actions);
 		context.put(DISCOVERY, discovery);
 		context.put(ESCAPE_TOOL, new EscapeTool());
+		context.put(JSON_OBJECT_WRAPPER, GoUtil.JSON_OBJECT_WRAPPER);
 		context.put(LANGUAGE_UTIL, goUtil);
 		context.put(PACKAGE, filter);
+		context.put(VOID, GoUtil.VOID);
 
 		return context;
 	}
