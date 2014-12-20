@@ -1,5 +1,4 @@
 #macro(goMethodSignature $action)
-	#set ($returnType = $languageUtil.getReturnType($action.response))
 	#set ($methodName = $languageUtil.getMethodName($action.path))
 	#set ($parameters = $action.parameters)
 	#set ($parameterList = "")
@@ -63,6 +62,7 @@ func NewService(s liferay.Session) *Service {
 
 #foreach ($action in $actions)
 	#set ($parameters = $action.parameters)
+	#set ($returnType = $languageUtil.getReturnType($action.response))
 
 	#goMethodSignature($action)
 
@@ -70,14 +70,14 @@ func NewService(s liferay.Session) *Service {
 
 	##n
 
-	#set ($invokeMethod = "invoke")
+	#set ($invokeMethod = "Invoke")
 
 	#foreach ($parameter in $parameters)
 		#set ($parameterName = $parameter.name)
 		#set ($parameterType = $languageUtil.getType($parameter.type))
 
 		#if ($parameterType == $IO_READER)
-			#set ($invokeMethod = "upload")
+			#set ($invokeMethod = "Upload")
 		#end
 
 		#set ($parameterValue = $parameterName)
@@ -96,6 +96,32 @@ func NewService(s liferay.Session) *Service {
 	##t	_cmd := map[string]interface{}{
 	##t		${esc.q}$context$action.path${esc.q}: _params,
 	##t	}
+
+	##n
+
+	#if ($returnType != $VOID)
+		##t	var v $returnType
+
+		##n
+
+		##t	res, err := s.session.$invokeMethod(_cmd)
+
+		##n
+
+		##t	if err == nil && res != nil {
+		##t		v = TODO
+		##t	}
+
+		##n
+
+		##t	return v, err
+	#else
+		##t	_, err := s.session.$invokeMethod(_cmd)
+
+		##n
+
+		##t	return err
+	#end
 
 	}
 
