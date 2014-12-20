@@ -15,10 +15,13 @@
 package com.github.ithildir.liferay.mobile.go;
 
 import com.liferay.mobile.sdk.http.Action;
+import com.liferay.mobile.sdk.http.Parameter;
 import com.liferay.mobile.sdk.util.CharPool;
 import com.liferay.mobile.sdk.util.LanguageUtil;
 
 import java.util.List;
+
+import org.apache.commons.lang.ArrayUtils;
 
 /**
  * @author Andrea Di Giorgi
@@ -65,6 +68,14 @@ public class GoUtil extends LanguageUtil {
 		}
 
 		return sb.toString();
+	}
+
+	public String getParameterName(String parameterName) {
+		if (ArrayUtils.contains(_RESERVED_KEYWORDS, parameterName)) {
+			return CharPool.UNDERLINE + parameterName;
+		}
+
+		return parameterName;
 	}
 
 	public String getResponseVariableConversion(String returnType) {
@@ -137,6 +148,15 @@ public class GoUtil extends LanguageUtil {
 		return JSON_OBJECT;
 	}
 
+	public boolean isIOPackageRequired(List<Action> actions) {
+		if (_hasParameterType(actions, FILE)) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+
 	protected int getMethodOverloadIndex(List<Action> actions, int index) {
 		Action action = actions.get(index);
 
@@ -160,5 +180,23 @@ public class GoUtil extends LanguageUtil {
 
 		return overloadIndex;
 	}
+
+	private boolean _hasParameterType(List<Action> actions, String type) {
+		for (Action action : actions) {
+			for (Parameter parameter : action.getParameters()) {
+				if (type.equals(parameter.getType())) {
+					return true;
+				}
+			}
+		}
+
+		return false;
+	}
+
+	private static final String[] _RESERVED_KEYWORDS = {
+		"break", "case", "chan", "const", "continue", "default", "defer",
+		"else", "fallthrough", "for", "func", "go", "goto", "if", "import",
+		"interface", "map", "package", "range", "return", "select", "struct",
+		"switch", "type", "var"};
 
 }

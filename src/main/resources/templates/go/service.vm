@@ -6,7 +6,7 @@
 	#set ($parameterList = "")
 
 	#foreach ($parameter in $parameters)
-		#set ($parameterName = $parameter.name)
+		#set ($parameterName = $languageUtil.getParameterName($parameter.name))
 		#set ($parameterType = $languageUtil.getType($parameter.type))
 		#set ($parameterList = "$parameterList$parameterName $parameterType")
 
@@ -45,6 +45,12 @@ package $package
 ##n
 
 import (
+	#if ($languageUtil.isIOPackageRequired($actions))
+		##t	"io"
+
+		##n
+	#end
+
 ##t	"github.com/ithildir/liferay-sdk-go/liferay"
 )
 
@@ -83,7 +89,7 @@ func NewService(s liferay.Session) *Service {
 			#set ($invokeMethod = "Upload")
 		#end
 
-		#set ($parameterValue = $parameterName)
+		#set ($parameterValue = $languageUtil.getParameterName($parameterName))
 
 		#if ($parameterType == $JSON_OBJECT_WRAPPER)
 			##t	liferay.MangleObjectWrapper(_params, ${esc.q}$parameterName${esc.q}, ${esc.q}$languageUtil.getJSONWrapperClassName($parameter.type)${esc.q}, $parameterValue)
