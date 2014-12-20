@@ -60,7 +60,7 @@ func (s *Service) GetCompanyEntriesCount(companyId int64) (int, error) {
 	res, err := s.session.Invoke(_cmd)
 
 	if err == nil && res != nil {
-		v = int(res.(float64)
+		v = int(res.(float64))
 	}
 
 	return v, err
@@ -100,7 +100,7 @@ func (s *Service) GetEntriesCount(entryQuery *liferay.ObjectWrapper) (int, error
 	res, err := s.session.Invoke(_cmd)
 
 	if err == nil && res != nil {
-		v = int(res.(float64)
+		v = int(res.(float64))
 	}
 
 	return v, err

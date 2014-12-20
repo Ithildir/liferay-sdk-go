@@ -201,7 +201,7 @@ func (s *Service) GetNodesCount(groupId int64) (int, error) {
 	res, err := s.session.Invoke(_cmd)
 
 	if err == nil && res != nil {
-		v = int(res.(float64)
+		v = int(res.(float64))
 	}
 
 	return v, err
@@ -222,7 +222,7 @@ func (s *Service) GetNodesCount2(groupId int64, status int) (int, error) {
 	res, err := s.session.Invoke(_cmd)
 
 	if err == nil && res != nil {
-		v = int(res.(float64)
+		v = int(res.(float64))
 	}
 
 	return v, err

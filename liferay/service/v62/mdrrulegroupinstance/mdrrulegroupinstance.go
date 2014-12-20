@@ -126,7 +126,7 @@ func (s *Service) GetRuleGroupInstancesCount(className string, classPK int64) (i
 	res, err := s.session.Invoke(_cmd)
 
 	if err == nil && res != nil {
-		v = int(res.(float64)
+		v = int(res.(float64))
 	}
 
 	return v, err

@@ -131,7 +131,7 @@ func (s *Service) GetGroupTagsCount(groupId int64) (int, error) {
 	res, err := s.session.Invoke(_cmd)
 
 	if err == nil && res != nil {
-		v = int(res.(float64)
+		v = int(res.(float64))
 	}
 
 	return v, err
@@ -354,7 +354,7 @@ func (s *Service) GetTagsCount(groupId int64, name string) (int, error) {
 	res, err := s.session.Invoke(_cmd)
 
 	if err == nil && res != nil {
-		v = int(res.(float64)
+		v = int(res.(float64))
 	}
 
 	return v, err
@@ -376,7 +376,7 @@ func (s *Service) GetTagsCount2(groupId int64, classNameId int64, name string) (
 	res, err := s.session.Invoke(_cmd)
 
 	if err == nil && res != nil {
-		v = int(res.(float64)
+		v = int(res.(float64))
 	}
 
 	return v, err
@@ -398,7 +398,7 @@ func (s *Service) GetTagsCount3(groupId int64, name string, tagProperties []inte
 	res, err := s.session.Invoke(_cmd)
 
 	if err == nil && res != nil {
-		v = int(res.(float64)
+		v = int(res.(float64))
 	}
 
 	return v, err

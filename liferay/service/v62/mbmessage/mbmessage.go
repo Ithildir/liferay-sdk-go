@@ -253,7 +253,7 @@ func (s *Service) GetCategoryMessagesCount(groupId int64, categoryId int64, stat
 	res, err := s.session.Invoke(_cmd)
 
 	if err == nil && res != nil {
-		v = int(res.(float64)
+		v = int(res.(float64))
 	}
 
 	return v, err
@@ -331,7 +331,7 @@ func (s *Service) GetGroupMessagesCount(groupId int64, status int) (int, error) 
 	res, err := s.session.Invoke(_cmd)
 
 	if err == nil && res != nil {
-		v = int(res.(float64)
+		v = int(res.(float64))
 	}
 
 	return v, err
@@ -453,7 +453,7 @@ func (s *Service) GetThreadAnswersCount(groupId int64, categoryId int64, threadI
 	res, err := s.session.Invoke(_cmd)
 
 	if err == nil && res != nil {
-		v = int(res.(float64)
+		v = int(res.(float64))
 	}
 
 	return v, err
@@ -501,7 +501,7 @@ func (s *Service) GetThreadMessagesCount(groupId int64, categoryId int64, thread
 	res, err := s.session.Invoke(_cmd)
 
 	if err == nil && res != nil {
-		v = int(res.(float64)
+		v = int(res.(float64))
 	}
 
 	return v, err

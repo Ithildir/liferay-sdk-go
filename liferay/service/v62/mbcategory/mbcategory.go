@@ -269,7 +269,7 @@ func (s *Service) GetCategoriesCount(groupId int64, parentCategoryId int64) (int
 	res, err := s.session.Invoke(_cmd)
 
 	if err == nil && res != nil {
-		v = int(res.(float64)
+		v = int(res.(float64))
 	}
 
 	return v, err
@@ -290,7 +290,7 @@ func (s *Service) GetCategoriesCount2(groupId int64, parentCategoryIds []interfa
 	res, err := s.session.Invoke(_cmd)
 
 	if err == nil && res != nil {
-		v = int(res.(float64)
+		v = int(res.(float64))
 	}
 
 	return v, err
@@ -312,7 +312,7 @@ func (s *Service) GetCategoriesCount3(groupId int64, parentCategoryId int64, sta
 	res, err := s.session.Invoke(_cmd)
 
 	if err == nil && res != nil {
-		v = int(res.(float64)
+		v = int(res.(float64))
 	}
 
 	return v, err
@@ -334,7 +334,7 @@ func (s *Service) GetCategoriesCount4(groupId int64, parentCategoryIds []interfa
 	res, err := s.session.Invoke(_cmd)
 
 	if err == nil && res != nil {
-		v = int(res.(float64)
+		v = int(res.(float64))
 	}
 
 	return v, err
@@ -441,7 +441,7 @@ func (s *Service) GetSubscribedCategoriesCount(groupId int64, userId int64) (int
 	res, err := s.session.Invoke(_cmd)
 
 	if err == nil && res != nil {
-		v = int(res.(float64)
+		v = int(res.(float64))
 	}
 
 	return v, err

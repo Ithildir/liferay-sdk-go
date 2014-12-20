@@ -547,7 +547,7 @@ func (s *Service) GetPagesCount(groupId int64, nodeId int64, head bool) (int, er
 	res, err := s.session.Invoke(_cmd)
 
 	if err == nil && res != nil {
-		v = int(res.(float64)
+		v = int(res.(float64))
 	}
 
 	return v, err
@@ -570,7 +570,7 @@ func (s *Service) GetPagesCount2(groupId int64, userId int64, nodeId int64, stat
 	res, err := s.session.Invoke(_cmd)
 
 	if err == nil && res != nil {
-		v = int(res.(float64)
+		v = int(res.(float64))
 	}
 
 	return v, err
@@ -673,7 +673,7 @@ func (s *Service) GetRecentChangesCount(groupId int64, nodeId int64) (int, error
 	res, err := s.session.Invoke(_cmd)
 
 	if err == nil && res != nil {
-		v = int(res.(float64)
+		v = int(res.(float64))
 	}
 
 	return v, err

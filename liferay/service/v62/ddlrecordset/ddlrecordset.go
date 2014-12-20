@@ -156,7 +156,7 @@ func (s *Service) SearchCount(companyId int64, groupId int64, keywords string, s
 	res, err := s.session.Invoke(_cmd)
 
 	if err == nil && res != nil {
-		v = int(res.(float64)
+		v = int(res.(float64))
 	}
 
 	return v, err
@@ -181,7 +181,7 @@ func (s *Service) SearchCount2(companyId int64, groupId int64, name string, desc
 	res, err := s.session.Invoke(_cmd)
 
 	if err == nil && res != nil {
-		v = int(res.(float64)
+		v = int(res.(float64))
 	}
 
 	return v, err

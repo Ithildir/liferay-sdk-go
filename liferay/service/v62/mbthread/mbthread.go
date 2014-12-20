@@ -154,7 +154,7 @@ func (s *Service) GetGroupThreadsCount(groupId int64, userId int64, status int) 
 	res, err := s.session.Invoke(_cmd)
 
 	if err == nil && res != nil {
-		v = int(res.(float64)
+		v = int(res.(float64))
 	}
 
 	return v, err
@@ -177,7 +177,7 @@ func (s *Service) GetGroupThreadsCount2(groupId int64, userId int64, modifiedDat
 	res, err := s.session.Invoke(_cmd)
 
 	if err == nil && res != nil {
-		v = int(res.(float64)
+		v = int(res.(float64))
 	}
 
 	return v, err
@@ -200,7 +200,7 @@ func (s *Service) GetGroupThreadsCount3(groupId int64, userId int64, status int,
 	res, err := s.session.Invoke(_cmd)
 
 	if err == nil && res != nil {
-		v = int(res.(float64)
+		v = int(res.(float64))
 	}
 
 	return v, err
@@ -224,7 +224,7 @@ func (s *Service) GetGroupThreadsCount4(groupId int64, userId int64, status int,
 	res, err := s.session.Invoke(_cmd)
 
 	if err == nil && res != nil {
-		v = int(res.(float64)
+		v = int(res.(float64))
 	}
 
 	return v, err
@@ -270,7 +270,7 @@ func (s *Service) GetThreadsCount(groupId int64, categoryId int64, status int) (
 	res, err := s.session.Invoke(_cmd)
 
 	if err == nil && res != nil {
-		v = int(res.(float64)
+		v = int(res.(float64))
 	}
 
 	return v, err

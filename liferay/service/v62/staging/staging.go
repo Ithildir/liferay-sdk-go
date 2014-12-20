@@ -53,7 +53,7 @@ func (s *Service) CreateStagingRequest(groupId int64, checksum string) (int64, e
 	res, err := s.session.Invoke(_cmd)
 
 	if err == nil && res != nil {
-		v = int64(res.(float64)
+		v = int64(res.(float64))
 	}
 
 	return v, err

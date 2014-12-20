@@ -259,7 +259,7 @@ func (s *Service) ExportLayoutsAsFileInBackground(taskName string, groupId int64
 	res, err := s.session.Invoke(_cmd)
 
 	if err == nil && res != nil {
-		v = int64(res.(float64)
+		v = int64(res.(float64))
 	}
 
 	return v, err
@@ -381,7 +381,7 @@ func (s *Service) ExportPortletInfoAsFileInBackground(taskName string, portletId
 	res, err := s.session.Invoke(_cmd)
 
 	if err == nil && res != nil {
-		v = int64(res.(float64)
+		v = int64(res.(float64))
 	}
 
 	return v, err
@@ -408,7 +408,7 @@ func (s *Service) ExportPortletInfoAsFileInBackground2(taskName string, plid int
 	res, err := s.session.Invoke(_cmd)
 
 	if err == nil && res != nil {
-		v = int64(res.(float64)
+		v = int64(res.(float64))
 	}
 
 	return v, err
@@ -450,7 +450,7 @@ func (s *Service) GetDefaultPlid(groupId int64, scopeGroupId int64, portletId st
 	res, err := s.session.Invoke(_cmd)
 
 	if err == nil && res != nil {
-		v = int64(res.(float64)
+		v = int64(res.(float64))
 	}
 
 	return v, err
@@ -473,7 +473,7 @@ func (s *Service) GetDefaultPlid2(groupId int64, scopeGroupId int64, privateLayo
 	res, err := s.session.Invoke(_cmd)
 
 	if err == nil && res != nil {
-		v = int64(res.(float64)
+		v = int64(res.(float64))
 	}
 
 	return v, err
@@ -688,7 +688,7 @@ func (s *Service) ImportLayoutsInBackground(taskName string, groupId int64, priv
 	res, err := s.session.Invoke(_cmd)
 
 	if err == nil && res != nil {
-		v = int64(res.(float64)
+		v = int64(res.(float64))
 	}
 
 	return v, err
@@ -764,7 +764,7 @@ func (s *Service) ImportPortletInfoInBackground2(taskName string, plid int64, gr
 	res, err := s.session.Invoke(_cmd)
 
 	if err == nil && res != nil {
-		v = int64(res.(float64)
+		v = int64(res.(float64))
 	}
 
 	return v, err

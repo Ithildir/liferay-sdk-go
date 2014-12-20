@@ -262,7 +262,7 @@ func (s *Service) GetOrganizationId(companyId int64, name string) (int64, error)
 	res, err := s.session.Invoke(_cmd)
 
 	if err == nil && res != nil {
-		v = int64(res.(float64)
+		v = int64(res.(float64))
 	}
 
 	return v, err
@@ -327,7 +327,7 @@ func (s *Service) GetOrganizationsCount(companyId int64, parentOrganizationId in
 	res, err := s.session.Invoke(_cmd)
 
 	if err == nil && res != nil {
-		v = int(res.(float64)
+		v = int(res.(float64))
 	}
 
 	return v, err

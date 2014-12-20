@@ -363,7 +363,7 @@ func (s *Service) GetVocabularyCategoriesCount(groupId int64, vocabularyId int64
 	res, err := s.session.Invoke(_cmd)
 
 	if err == nil && res != nil {
-		v = int(res.(float64)
+		v = int(res.(float64))
 	}
 
 	return v, err
@@ -385,7 +385,7 @@ func (s *Service) GetVocabularyCategoriesCount2(groupId int64, name string, voca
 	res, err := s.session.Invoke(_cmd)
 
 	if err == nil && res != nil {
-		v = int(res.(float64)
+		v = int(res.(float64))
 	}
 
 	return v, err
@@ -501,7 +501,7 @@ func (s *Service) GetVocabularyRootCategoriesCount(groupId int64, vocabularyId i
 	res, err := s.session.Invoke(_cmd)
 
 	if err == nil && res != nil {
-		v = int(res.(float64)
+		v = int(res.(float64))
 	}
 
 	return v, err

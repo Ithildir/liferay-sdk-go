@@ -584,7 +584,7 @@ func (s *Service) GetFileEntriesAndFileShortcutsCount(repositoryId int64, folder
 	res, err := s.session.Invoke(_cmd)
 
 	if err == nil && res != nil {
-		v = int(res.(float64)
+		v = int(res.(float64))
 	}
 
 	return v, err
@@ -607,7 +607,7 @@ func (s *Service) GetFileEntriesAndFileShortcutsCount2(repositoryId int64, folde
 	res, err := s.session.Invoke(_cmd)
 
 	if err == nil && res != nil {
-		v = int(res.(float64)
+		v = int(res.(float64))
 	}
 
 	return v, err
@@ -628,7 +628,7 @@ func (s *Service) GetFileEntriesCount(repositoryId int64, folderId int64) (int, 
 	res, err := s.session.Invoke(_cmd)
 
 	if err == nil && res != nil {
-		v = int(res.(float64)
+		v = int(res.(float64))
 	}
 
 	return v, err
@@ -650,7 +650,7 @@ func (s *Service) GetFileEntriesCount2(repositoryId int64, folderId int64, fileE
 	res, err := s.session.Invoke(_cmd)
 
 	if err == nil && res != nil {
-		v = int(res.(float64)
+		v = int(res.(float64))
 	}
 
 	return v, err
@@ -1041,7 +1041,7 @@ func (s *Service) GetFoldersAndFileEntriesAndFileShortcutsCount(repositoryId int
 	res, err := s.session.Invoke(_cmd)
 
 	if err == nil && res != nil {
-		v = int(res.(float64)
+		v = int(res.(float64))
 	}
 
 	return v, err
@@ -1065,7 +1065,7 @@ func (s *Service) GetFoldersAndFileEntriesAndFileShortcutsCount2(repositoryId in
 	res, err := s.session.Invoke(_cmd)
 
 	if err == nil && res != nil {
-		v = int(res.(float64)
+		v = int(res.(float64))
 	}
 
 	return v, err
@@ -1086,7 +1086,7 @@ func (s *Service) GetFoldersCount(repositoryId int64, parentFolderId int64) (int
 	res, err := s.session.Invoke(_cmd)
 
 	if err == nil && res != nil {
-		v = int(res.(float64)
+		v = int(res.(float64))
 	}
 
 	return v, err
@@ -1108,7 +1108,7 @@ func (s *Service) GetFoldersCount2(repositoryId int64, parentFolderId int64, inc
 	res, err := s.session.Invoke(_cmd)
 
 	if err == nil && res != nil {
-		v = int(res.(float64)
+		v = int(res.(float64))
 	}
 
 	return v, err
@@ -1131,7 +1131,7 @@ func (s *Service) GetFoldersCount3(repositoryId int64, parentFolderId int64, sta
 	res, err := s.session.Invoke(_cmd)
 
 	if err == nil && res != nil {
-		v = int(res.(float64)
+		v = int(res.(float64))
 	}
 
 	return v, err
@@ -1153,7 +1153,7 @@ func (s *Service) GetFoldersFileEntriesCount(repositoryId int64, folderIds []int
 	res, err := s.session.Invoke(_cmd)
 
 	if err == nil && res != nil {
-		v = int(res.(float64)
+		v = int(res.(float64))
 	}
 
 	return v, err
@@ -1297,7 +1297,7 @@ func (s *Service) GetGroupFileEntriesCount(groupId int64, userId int64) (int, er
 	res, err := s.session.Invoke(_cmd)
 
 	if err == nil && res != nil {
-		v = int(res.(float64)
+		v = int(res.(float64))
 	}
 
 	return v, err
@@ -1319,7 +1319,7 @@ func (s *Service) GetGroupFileEntriesCount2(groupId int64, userId int64, rootFol
 	res, err := s.session.Invoke(_cmd)
 
 	if err == nil && res != nil {
-		v = int(res.(float64)
+		v = int(res.(float64))
 	}
 
 	return v, err
@@ -1343,7 +1343,7 @@ func (s *Service) GetGroupFileEntriesCount3(groupId int64, userId int64, rootFol
 	res, err := s.session.Invoke(_cmd)
 
 	if err == nil && res != nil {
-		v = int(res.(float64)
+		v = int(res.(float64))
 	}
 
 	return v, err
@@ -1432,7 +1432,7 @@ func (s *Service) GetMountFoldersCount(repositoryId int64, parentFolderId int64)
 	res, err := s.session.Invoke(_cmd)
 
 	if err == nil && res != nil {
-		v = int(res.(float64)
+		v = int(res.(float64))
 	}
 
 	return v, err

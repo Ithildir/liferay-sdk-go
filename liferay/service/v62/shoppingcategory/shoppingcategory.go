@@ -119,7 +119,7 @@ func (s *Service) GetCategoriesCount(groupId int64, parentCategoryId int64) (int
 	res, err := s.session.Invoke(_cmd)
 
 	if err == nil && res != nil {
-		v = int(res.(float64)
+		v = int(res.(float64))
 	}
 
 	return v, err

@@ -58,7 +58,7 @@ func (s *Service) FetchClassNameId(clazz map[string]interface{}) (int64, error) 
 	res, err := s.session.Invoke(_cmd)
 
 	if err == nil && res != nil {
-		v = int64(res.(float64)
+		v = int64(res.(float64))
 	}
 
 	return v, err
@@ -78,7 +78,7 @@ func (s *Service) FetchClassNameId2(value string) (int64, error) {
 	res, err := s.session.Invoke(_cmd)
 
 	if err == nil && res != nil {
-		v = int64(res.(float64)
+		v = int64(res.(float64))
 	}
 
 	return v, err

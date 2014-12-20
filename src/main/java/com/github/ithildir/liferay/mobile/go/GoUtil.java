@@ -74,7 +74,7 @@ public class GoUtil extends LanguageUtil {
 			sb.append(returnType);
 			sb.append(CharPool.OPEN_PARENTHESIS);
 			sb.append(RESPONSE_VARIABLE);
-			sb.append(".(float64)");
+			sb.append(".(float64))");
 
 			return sb.toString();
 		}

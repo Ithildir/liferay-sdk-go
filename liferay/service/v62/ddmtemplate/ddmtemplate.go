@@ -406,7 +406,7 @@ func (s *Service) GetTemplatesByStructureClassNameIdCount(groupId int64, structu
 	res, err := s.session.Invoke(_cmd)
 
 	if err == nil && res != nil {
-		v = int(res.(float64)
+		v = int(res.(float64))
 	}
 
 	return v, err
@@ -557,7 +557,7 @@ func (s *Service) SearchCount(companyId int64, groupId int64, classNameId int64,
 	res, err := s.session.Invoke(_cmd)
 
 	if err == nil && res != nil {
-		v = int(res.(float64)
+		v = int(res.(float64))
 	}
 
 	return v, err
@@ -586,7 +586,7 @@ func (s *Service) SearchCount2(companyId int64, groupIds []interface{}, classNam
 	res, err := s.session.Invoke(_cmd)
 
 	if err == nil && res != nil {
-		v = int(res.(float64)
+		v = int(res.(float64))
 	}
 
 	return v, err
@@ -612,7 +612,7 @@ func (s *Service) SearchCount3(companyId int64, groupId int64, classNameId int64
 	res, err := s.session.Invoke(_cmd)
 
 	if err == nil && res != nil {
-		v = int(res.(float64)
+		v = int(res.(float64))
 	}
 
 	return v, err
@@ -638,7 +638,7 @@ func (s *Service) SearchCount4(companyId int64, groupIds []interface{}, classNam
 	res, err := s.session.Invoke(_cmd)
 
 	if err == nil && res != nil {
-		v = int(res.(float64)
+		v = int(res.(float64))
 	}
 
 	return v, err

@@ -287,7 +287,7 @@ func (s *Service) GetFoldersAndEntriesCount(groupId int64, folderId int64) (int,
 	res, err := s.session.Invoke(_cmd)
 
 	if err == nil && res != nil {
-		v = int(res.(float64)
+		v = int(res.(float64))
 	}
 
 	return v, err
@@ -309,7 +309,7 @@ func (s *Service) GetFoldersAndEntriesCount2(groupId int64, folderId int64, stat
 	res, err := s.session.Invoke(_cmd)
 
 	if err == nil && res != nil {
-		v = int(res.(float64)
+		v = int(res.(float64))
 	}
 
 	return v, err
@@ -330,7 +330,7 @@ func (s *Service) GetFoldersCount(groupId int64, parentFolderId int64) (int, err
 	res, err := s.session.Invoke(_cmd)
 
 	if err == nil && res != nil {
-		v = int(res.(float64)
+		v = int(res.(float64))
 	}
 
 	return v, err
@@ -352,7 +352,7 @@ func (s *Service) GetFoldersCount2(groupId int64, parentFolderId int64, status i
 	res, err := s.session.Invoke(_cmd)
 
 	if err == nil && res != nil {
-		v = int(res.(float64)
+		v = int(res.(float64))
 	}
 
 	return v, err

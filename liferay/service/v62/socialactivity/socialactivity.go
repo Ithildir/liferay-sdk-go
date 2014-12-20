@@ -130,7 +130,7 @@ func (s *Service) GetActivitiesCount(className string) (int, error) {
 	res, err := s.session.Invoke(_cmd)
 
 	if err == nil && res != nil {
-		v = int(res.(float64)
+		v = int(res.(float64))
 	}
 
 	return v, err
@@ -150,7 +150,7 @@ func (s *Service) GetActivitiesCount2(classNameId int64) (int, error) {
 	res, err := s.session.Invoke(_cmd)
 
 	if err == nil && res != nil {
-		v = int(res.(float64)
+		v = int(res.(float64))
 	}
 
 	return v, err
@@ -172,7 +172,7 @@ func (s *Service) GetActivitiesCount3(mirrorActivityId int64, className string, 
 	res, err := s.session.Invoke(_cmd)
 
 	if err == nil && res != nil {
-		v = int(res.(float64)
+		v = int(res.(float64))
 	}
 
 	return v, err
@@ -194,7 +194,7 @@ func (s *Service) GetActivitiesCount4(mirrorActivityId int64, classNameId int64,
 	res, err := s.session.Invoke(_cmd)
 
 	if err == nil && res != nil {
-		v = int(res.(float64)
+		v = int(res.(float64))
 	}
 
 	return v, err
@@ -278,7 +278,7 @@ func (s *Service) GetGroupActivitiesCount(groupId int64) (int, error) {
 	res, err := s.session.Invoke(_cmd)
 
 	if err == nil && res != nil {
-		v = int(res.(float64)
+		v = int(res.(float64))
 	}
 
 	return v, err
@@ -320,7 +320,7 @@ func (s *Service) GetGroupUsersActivitiesCount(groupId int64) (int, error) {
 	res, err := s.session.Invoke(_cmd)
 
 	if err == nil && res != nil {
-		v = int(res.(float64)
+		v = int(res.(float64))
 	}
 
 	return v, err
@@ -382,7 +382,7 @@ func (s *Service) GetOrganizationActivitiesCount(organizationId int64) (int, err
 	res, err := s.session.Invoke(_cmd)
 
 	if err == nil && res != nil {
-		v = int(res.(float64)
+		v = int(res.(float64))
 	}
 
 	return v, err
@@ -424,7 +424,7 @@ func (s *Service) GetOrganizationUsersActivitiesCount(organizationId int64) (int
 	res, err := s.session.Invoke(_cmd)
 
 	if err == nil && res != nil {
-		v = int(res.(float64)
+		v = int(res.(float64))
 	}
 
 	return v, err
@@ -489,7 +489,7 @@ func (s *Service) GetRelationActivitiesCount(userId int64) (int, error) {
 	res, err := s.session.Invoke(_cmd)
 
 	if err == nil && res != nil {
-		v = int(res.(float64)
+		v = int(res.(float64))
 	}
 
 	return v, err
@@ -510,7 +510,7 @@ func (s *Service) GetRelationActivitiesCount2(userId int64, type int) (int, erro
 	res, err := s.session.Invoke(_cmd)
 
 	if err == nil && res != nil {
-		v = int(res.(float64)
+		v = int(res.(float64))
 	}
 
 	return v, err
@@ -552,7 +552,7 @@ func (s *Service) GetUserActivitiesCount(userId int64) (int, error) {
 	res, err := s.session.Invoke(_cmd)
 
 	if err == nil && res != nil {
-		v = int(res.(float64)
+		v = int(res.(float64))
 	}
 
 	return v, err
@@ -594,7 +594,7 @@ func (s *Service) GetUserGroupsActivitiesCount(userId int64) (int, error) {
 	res, err := s.session.Invoke(_cmd)
 
 	if err == nil && res != nil {
-		v = int(res.(float64)
+		v = int(res.(float64))
 	}
 
 	return v, err
@@ -636,7 +636,7 @@ func (s *Service) GetUserGroupsAndOrganizationsActivitiesCount(userId int64) (in
 	res, err := s.session.Invoke(_cmd)
 
 	if err == nil && res != nil {
-		v = int(res.(float64)
+		v = int(res.(float64))
 	}
 
 	return v, err
@@ -678,7 +678,7 @@ func (s *Service) GetUserOrganizationsActivitiesCount(userId int64) (int, error)
 	res, err := s.session.Invoke(_cmd)
 
 	if err == nil && res != nil {
-		v = int(res.(float64)
+		v = int(res.(float64))
 	}
 
 	return v, err

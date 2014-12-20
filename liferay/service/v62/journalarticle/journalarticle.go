@@ -540,7 +540,7 @@ func (s *Service) GetArticlesCount(groupId int64, folderId int64) (int, error) {
 	res, err := s.session.Invoke(_cmd)
 
 	if err == nil && res != nil {
-		v = int(res.(float64)
+		v = int(res.(float64))
 	}
 
 	return v, err
@@ -562,7 +562,7 @@ func (s *Service) GetArticlesCount2(groupId int64, folderId int64, status int) (
 	res, err := s.session.Invoke(_cmd)
 
 	if err == nil && res != nil {
-		v = int(res.(float64)
+		v = int(res.(float64))
 	}
 
 	return v, err
@@ -583,7 +583,7 @@ func (s *Service) GetArticlesCountByArticleId(groupId int64, articleId string) (
 	res, err := s.session.Invoke(_cmd)
 
 	if err == nil && res != nil {
-		v = int(res.(float64)
+		v = int(res.(float64))
 	}
 
 	return v, err
@@ -604,7 +604,7 @@ func (s *Service) GetArticlesCountByStructureId(groupId int64, ddmStructureKey s
 	res, err := s.session.Invoke(_cmd)
 
 	if err == nil && res != nil {
-		v = int(res.(float64)
+		v = int(res.(float64))
 	}
 
 	return v, err
@@ -627,7 +627,7 @@ func (s *Service) GetArticlesCountByStructureId2(groupId int64, classNameId int6
 	res, err := s.session.Invoke(_cmd)
 
 	if err == nil && res != nil {
-		v = int(res.(float64)
+		v = int(res.(float64))
 	}
 
 	return v, err
@@ -669,7 +669,7 @@ func (s *Service) GetFoldersAndArticlesCount(groupId int64, folderIds []interfac
 	res, err := s.session.Invoke(_cmd)
 
 	if err == nil && res != nil {
-		v = int(res.(float64)
+		v = int(res.(float64))
 	}
 
 	return v, err
@@ -742,7 +742,7 @@ func (s *Service) GetGroupArticlesCount(groupId int64, userId int64, rootFolderI
 	res, err := s.session.Invoke(_cmd)
 
 	if err == nil && res != nil {
-		v = int(res.(float64)
+		v = int(res.(float64))
 	}
 
 	return v, err
@@ -765,7 +765,7 @@ func (s *Service) GetGroupArticlesCount2(groupId int64, userId int64, rootFolder
 	res, err := s.session.Invoke(_cmd)
 
 	if err == nil && res != nil {
-		v = int(res.(float64)
+		v = int(res.(float64))
 	}
 
 	return v, err
@@ -1148,7 +1148,7 @@ func (s *Service) SearchCount(companyId int64, groupId int64, folderIds []interf
 	res, err := s.session.Invoke(_cmd)
 
 	if err == nil && res != nil {
-		v = int(res.(float64)
+		v = int(res.(float64))
 	}
 
 	return v, err
@@ -1184,7 +1184,7 @@ func (s *Service) SearchCount2(companyId int64, groupId int64, folderIds []inter
 	res, err := s.session.Invoke(_cmd)
 
 	if err == nil && res != nil {
-		v = int(res.(float64)
+		v = int(res.(float64))
 	}
 
 	return v, err
@@ -1220,7 +1220,7 @@ func (s *Service) SearchCount3(companyId int64, groupId int64, folderIds []inter
 	res, err := s.session.Invoke(_cmd)
 
 	if err == nil && res != nil {
-		v = int(res.(float64)
+		v = int(res.(float64))
 	}
 
 	return v, err
