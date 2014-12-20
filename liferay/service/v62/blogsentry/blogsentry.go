@@ -61,14 +61,14 @@ func (s *Service) GetCompanyEntries(companyId int64, displayDate int64, status i
 	return v, err
 }
 
-func (s *Service) GetCompanyEntriesRss(companyId int64, displayDate int64, status int, max int, type string, version float64, displayStyle string, feedURL string, entryURL string, themeDisplay *liferay.ObjectWrapper) (string, error) {
+func (s *Service) GetCompanyEntriesRss(companyId int64, displayDate int64, status int, max int, _type string, version float64, displayStyle string, feedURL string, entryURL string, themeDisplay *liferay.ObjectWrapper) (string, error) {
 	_params := make(map[string]interface{})
 
 	_params["companyId"] = companyId
 	_params["displayDate"] = displayDate
 	_params["status"] = status
 	_params["max"] = max
-	_params["type"] = type
+	_params["type"] = _type
 	_params["version"] = version
 	_params["displayStyle"] = displayStyle
 	_params["feedURL"] = feedURL
@@ -266,14 +266,14 @@ func (s *Service) GetGroupEntriesCount2(groupId int64, displayDate int64, status
 	return v, err
 }
 
-func (s *Service) GetGroupEntriesRss(groupId int64, displayDate int64, status int, max int, type string, version float64, displayStyle string, feedURL string, entryURL string, themeDisplay *liferay.ObjectWrapper) (string, error) {
+func (s *Service) GetGroupEntriesRss(groupId int64, displayDate int64, status int, max int, _type string, version float64, displayStyle string, feedURL string, entryURL string, themeDisplay *liferay.ObjectWrapper) (string, error) {
 	_params := make(map[string]interface{})
 
 	_params["groupId"] = groupId
 	_params["displayDate"] = displayDate
 	_params["status"] = status
 	_params["max"] = max
-	_params["type"] = type
+	_params["type"] = _type
 	_params["version"] = version
 	_params["displayStyle"] = displayStyle
 	_params["feedURL"] = feedURL
@@ -342,14 +342,14 @@ func (s *Service) GetOrganizationEntries(organizationId int64, displayDate int64
 	return v, err
 }
 
-func (s *Service) GetOrganizationEntriesRss(organizationId int64, displayDate int64, status int, max int, type string, version float64, displayStyle string, feedURL string, entryURL string, themeDisplay *liferay.ObjectWrapper) (string, error) {
+func (s *Service) GetOrganizationEntriesRss(organizationId int64, displayDate int64, status int, max int, _type string, version float64, displayStyle string, feedURL string, entryURL string, themeDisplay *liferay.ObjectWrapper) (string, error) {
 	_params := make(map[string]interface{})
 
 	_params["organizationId"] = organizationId
 	_params["displayDate"] = displayDate
 	_params["status"] = status
 	_params["max"] = max
-	_params["type"] = type
+	_params["type"] = _type
 	_params["version"] = version
 	_params["displayStyle"] = displayStyle
 	_params["feedURL"] = feedURL

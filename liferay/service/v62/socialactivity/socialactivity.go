@@ -452,11 +452,11 @@ func (s *Service) GetRelationActivities(userId int64, start int, end int) ([]int
 	return v, err
 }
 
-func (s *Service) GetRelationActivities2(userId int64, type int, start int, end int) ([]interface{}, error) {
+func (s *Service) GetRelationActivities2(userId int64, _type int, start int, end int) ([]interface{}, error) {
 	_params := make(map[string]interface{})
 
 	_params["userId"] = userId
-	_params["type"] = type
+	_params["type"] = _type
 	_params["start"] = start
 	_params["end"] = end
 
@@ -495,11 +495,11 @@ func (s *Service) GetRelationActivitiesCount(userId int64) (int, error) {
 	return v, err
 }
 
-func (s *Service) GetRelationActivitiesCount2(userId int64, type int) (int, error) {
+func (s *Service) GetRelationActivitiesCount2(userId int64, _type int) (int, error) {
 	_params := make(map[string]interface{})
 
 	_params["userId"] = userId
-	_params["type"] = type
+	_params["type"] = _type
 
 	_cmd := map[string]interface{}{
 		"/socialactivity/get-relation-activities-count": _params,

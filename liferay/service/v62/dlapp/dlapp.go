@@ -13,6 +13,8 @@
 package dlapp
 
 import (
+	"io"
+
 	"github.com/ithildir/liferay-sdk-go/liferay"
 )
 

@@ -13,6 +13,8 @@
 package wikipage
 
 import (
+	"io"
+
 	"github.com/ithildir/liferay-sdk-go/liferay"
 )
 
@@ -319,12 +321,12 @@ func (s *Service) GetNodePages(nodeId int64, max int) ([]interface{}, error) {
 	return v, err
 }
 
-func (s *Service) GetNodePagesRss(nodeId int64, max int, type string, version float64, displayStyle string, feedURL string, entryURL string) (string, error) {
+func (s *Service) GetNodePagesRss(nodeId int64, max int, _type string, version float64, displayStyle string, feedURL string, entryURL string) (string, error) {
 	_params := make(map[string]interface{})
 
 	_params["nodeId"] = nodeId
 	_params["max"] = max
-	_params["type"] = type
+	_params["type"] = _type
 	_params["version"] = version
 	_params["displayStyle"] = displayStyle
 	_params["feedURL"] = feedURL
@@ -345,12 +347,12 @@ func (s *Service) GetNodePagesRss(nodeId int64, max int, type string, version fl
 	return v, err
 }
 
-func (s *Service) GetNodePagesRss2(nodeId int64, max int, type string, version float64, displayStyle string, feedURL string, entryURL string, attachmentURLPrefix string) (string, error) {
+func (s *Service) GetNodePagesRss2(nodeId int64, max int, _type string, version float64, displayStyle string, feedURL string, entryURL string, attachmentURLPrefix string) (string, error) {
 	_params := make(map[string]interface{})
 
 	_params["nodeId"] = nodeId
 	_params["max"] = max
-	_params["type"] = type
+	_params["type"] = _type
 	_params["version"] = version
 	_params["displayStyle"] = displayStyle
 	_params["feedURL"] = feedURL
@@ -576,14 +578,14 @@ func (s *Service) GetPagesCount2(groupId int64, userId int64, nodeId int64, stat
 	return v, err
 }
 
-func (s *Service) GetPagesRss(companyId int64, nodeId int64, title string, max int, type string, version float64, displayStyle string, feedURL string, entryURL string, locale string) (string, error) {
+func (s *Service) GetPagesRss(companyId int64, nodeId int64, title string, max int, _type string, version float64, displayStyle string, feedURL string, entryURL string, locale string) (string, error) {
 	_params := make(map[string]interface{})
 
 	_params["companyId"] = companyId
 	_params["nodeId"] = nodeId
 	_params["title"] = title
 	_params["max"] = max
-	_params["type"] = type
+	_params["type"] = _type
 	_params["version"] = version
 	_params["displayStyle"] = displayStyle
 	_params["feedURL"] = feedURL
@@ -605,14 +607,14 @@ func (s *Service) GetPagesRss(companyId int64, nodeId int64, title string, max i
 	return v, err
 }
 
-func (s *Service) GetPagesRss2(companyId int64, nodeId int64, title string, max int, type string, version float64, displayStyle string, feedURL string, entryURL string, attachmentURLPrefix string, locale string) (string, error) {
+func (s *Service) GetPagesRss2(companyId int64, nodeId int64, title string, max int, _type string, version float64, displayStyle string, feedURL string, entryURL string, attachmentURLPrefix string, locale string) (string, error) {
 	_params := make(map[string]interface{})
 
 	_params["companyId"] = companyId
 	_params["nodeId"] = nodeId
 	_params["title"] = title
 	_params["max"] = max
-	_params["type"] = type
+	_params["type"] = _type
 	_params["version"] = version
 	_params["displayStyle"] = displayStyle
 	_params["feedURL"] = feedURL

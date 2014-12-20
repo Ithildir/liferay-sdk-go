@@ -13,6 +13,8 @@
 package layout
 
 import (
+	"io"
+
 	"github.com/ithildir/liferay-sdk-go/liferay"
 )
 
@@ -24,7 +26,7 @@ func NewService(s liferay.Session) *Service {
 	return &Service{s}
 }
 
-func (s *Service) AddLayout(groupId int64, privateLayout bool, parentLayoutId int64, name string, title string, description string, type string, hidden bool, friendlyURL string, serviceContext *liferay.ObjectWrapper) (map[string]interface{}, error) {
+func (s *Service) AddLayout(groupId int64, privateLayout bool, parentLayoutId int64, name string, title string, description string, _type string, hidden bool, friendlyURL string, serviceContext *liferay.ObjectWrapper) (map[string]interface{}, error) {
 	_params := make(map[string]interface{})
 
 	_params["groupId"] = groupId
@@ -33,7 +35,7 @@ func (s *Service) AddLayout(groupId int64, privateLayout bool, parentLayoutId in
 	_params["name"] = name
 	_params["title"] = title
 	_params["description"] = description
-	_params["type"] = type
+	_params["type"] = _type
 	_params["hidden"] = hidden
 	_params["friendlyURL"] = friendlyURL
 	liferay.MangleObjectWrapper(_params, "serviceContext", "com.liferay.portal.service.ServiceContext", serviceContext)
@@ -53,7 +55,7 @@ func (s *Service) AddLayout(groupId int64, privateLayout bool, parentLayoutId in
 	return v, err
 }
 
-func (s *Service) AddLayout2(groupId int64, privateLayout bool, parentLayoutId int64, localeNamesMap map[string]interface{}, localeTitlesMap map[string]interface{}, descriptionMap map[string]interface{}, keywordsMap map[string]interface{}, robotsMap map[string]interface{}, type string, hidden bool, friendlyURL string, serviceContext *liferay.ObjectWrapper) (map[string]interface{}, error) {
+func (s *Service) AddLayout2(groupId int64, privateLayout bool, parentLayoutId int64, localeNamesMap map[string]interface{}, localeTitlesMap map[string]interface{}, descriptionMap map[string]interface{}, keywordsMap map[string]interface{}, robotsMap map[string]interface{}, _type string, hidden bool, friendlyURL string, serviceContext *liferay.ObjectWrapper) (map[string]interface{}, error) {
 	_params := make(map[string]interface{})
 
 	_params["groupId"] = groupId
@@ -64,7 +66,7 @@ func (s *Service) AddLayout2(groupId int64, privateLayout bool, parentLayoutId i
 	_params["descriptionMap"] = descriptionMap
 	_params["keywordsMap"] = keywordsMap
 	_params["robotsMap"] = robotsMap
-	_params["type"] = type
+	_params["type"] = _type
 	_params["hidden"] = hidden
 	_params["friendlyURL"] = friendlyURL
 	liferay.MangleObjectWrapper(_params, "serviceContext", "com.liferay.portal.service.ServiceContext", serviceContext)
@@ -84,7 +86,7 @@ func (s *Service) AddLayout2(groupId int64, privateLayout bool, parentLayoutId i
 	return v, err
 }
 
-func (s *Service) AddLayout3(groupId int64, privateLayout bool, parentLayoutId int64, localeNamesMap map[string]interface{}, localeTitlesMap map[string]interface{}, descriptionMap map[string]interface{}, keywordsMap map[string]interface{}, robotsMap map[string]interface{}, type string, typeSettings string, hidden bool, friendlyURLMap map[string]interface{}, serviceContext *liferay.ObjectWrapper) (map[string]interface{}, error) {
+func (s *Service) AddLayout3(groupId int64, privateLayout bool, parentLayoutId int64, localeNamesMap map[string]interface{}, localeTitlesMap map[string]interface{}, descriptionMap map[string]interface{}, keywordsMap map[string]interface{}, robotsMap map[string]interface{}, _type string, typeSettings string, hidden bool, friendlyURLMap map[string]interface{}, serviceContext *liferay.ObjectWrapper) (map[string]interface{}, error) {
 	_params := make(map[string]interface{})
 
 	_params["groupId"] = groupId
@@ -95,7 +97,7 @@ func (s *Service) AddLayout3(groupId int64, privateLayout bool, parentLayoutId i
 	_params["descriptionMap"] = descriptionMap
 	_params["keywordsMap"] = keywordsMap
 	_params["robotsMap"] = robotsMap
-	_params["type"] = type
+	_params["type"] = _type
 	_params["typeSettings"] = typeSettings
 	_params["hidden"] = hidden
 	_params["friendlyURLMap"] = friendlyURLMap
@@ -876,7 +878,7 @@ func (s *Service) UnschedulePublishToRemote(groupId int64, jobName string, group
 	return err
 }
 
-func (s *Service) UpdateLayout(groupId int64, privateLayout bool, layoutId int64, parentLayoutId int64, localeNamesMap map[string]interface{}, localeTitlesMap map[string]interface{}, descriptionMap map[string]interface{}, keywordsMap map[string]interface{}, robotsMap map[string]interface{}, type string, hidden bool, friendlyURL string, iconImage *liferay.ObjectWrapper, iconBytes []byte, serviceContext *liferay.ObjectWrapper) (map[string]interface{}, error) {
+func (s *Service) UpdateLayout(groupId int64, privateLayout bool, layoutId int64, parentLayoutId int64, localeNamesMap map[string]interface{}, localeTitlesMap map[string]interface{}, descriptionMap map[string]interface{}, keywordsMap map[string]interface{}, robotsMap map[string]interface{}, _type string, hidden bool, friendlyURL string, iconImage *liferay.ObjectWrapper, iconBytes []byte, serviceContext *liferay.ObjectWrapper) (map[string]interface{}, error) {
 	_params := make(map[string]interface{})
 
 	_params["groupId"] = groupId
@@ -888,7 +890,7 @@ func (s *Service) UpdateLayout(groupId int64, privateLayout bool, layoutId int64
 	_params["descriptionMap"] = descriptionMap
 	_params["keywordsMap"] = keywordsMap
 	_params["robotsMap"] = robotsMap
-	_params["type"] = type
+	_params["type"] = _type
 	_params["hidden"] = hidden
 	_params["friendlyURL"] = friendlyURL
 	liferay.MangleObjectWrapper(_params, "iconImage", "java.lang.Boolean", iconImage)
@@ -910,7 +912,7 @@ func (s *Service) UpdateLayout(groupId int64, privateLayout bool, layoutId int64
 	return v, err
 }
 
-func (s *Service) UpdateLayout2(groupId int64, privateLayout bool, layoutId int64, parentLayoutId int64, localeNamesMap map[string]interface{}, localeTitlesMap map[string]interface{}, descriptionMap map[string]interface{}, keywordsMap map[string]interface{}, robotsMap map[string]interface{}, type string, hidden bool, friendlyURLMap map[string]interface{}, iconImage *liferay.ObjectWrapper, iconBytes []byte, serviceContext *liferay.ObjectWrapper) (map[string]interface{}, error) {
+func (s *Service) UpdateLayout2(groupId int64, privateLayout bool, layoutId int64, parentLayoutId int64, localeNamesMap map[string]interface{}, localeTitlesMap map[string]interface{}, descriptionMap map[string]interface{}, keywordsMap map[string]interface{}, robotsMap map[string]interface{}, _type string, hidden bool, friendlyURLMap map[string]interface{}, iconImage *liferay.ObjectWrapper, iconBytes []byte, serviceContext *liferay.ObjectWrapper) (map[string]interface{}, error) {
 	_params := make(map[string]interface{})
 
 	_params["groupId"] = groupId
@@ -922,7 +924,7 @@ func (s *Service) UpdateLayout2(groupId int64, privateLayout bool, layoutId int6
 	_params["descriptionMap"] = descriptionMap
 	_params["keywordsMap"] = keywordsMap
 	_params["robotsMap"] = robotsMap
-	_params["type"] = type
+	_params["type"] = _type
 	_params["hidden"] = hidden
 	_params["friendlyURLMap"] = friendlyURLMap
 	liferay.MangleObjectWrapper(_params, "iconImage", "java.lang.Boolean", iconImage)

@@ -13,6 +13,8 @@
 package journaltemplate
 
 import (
+	"io"
+
 	"github.com/ithildir/liferay-sdk-go/liferay"
 )
 

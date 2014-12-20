@@ -24,7 +24,7 @@ func NewService(s liferay.Session) *Service {
 	return &Service{s}
 }
 
-func (s *Service) AddFeed(groupId int64, feedId string, autoFeedId bool, name string, description string, type string, structureId string, templateId string, rendererTemplateId string, delta int, orderByCol string, orderByType string, targetLayoutFriendlyUrl string, targetPortletId string, contentField string, feedType string, feedVersion float64, serviceContext *liferay.ObjectWrapper) (map[string]interface{}, error) {
+func (s *Service) AddFeed(groupId int64, feedId string, autoFeedId bool, name string, description string, _type string, structureId string, templateId string, rendererTemplateId string, delta int, orderByCol string, orderByType string, targetLayoutFriendlyUrl string, targetPortletId string, contentField string, feedType string, feedVersion float64, serviceContext *liferay.ObjectWrapper) (map[string]interface{}, error) {
 	_params := make(map[string]interface{})
 
 	_params["groupId"] = groupId
@@ -32,7 +32,7 @@ func (s *Service) AddFeed(groupId int64, feedId string, autoFeedId bool, name st
 	_params["autoFeedId"] = autoFeedId
 	_params["name"] = name
 	_params["description"] = description
-	_params["type"] = type
+	_params["type"] = _type
 	_params["structureId"] = structureId
 	_params["templateId"] = templateId
 	_params["rendererTemplateId"] = rendererTemplateId
@@ -131,14 +131,14 @@ func (s *Service) GetFeed2(groupId int64, feedId string) (map[string]interface{}
 	return v, err
 }
 
-func (s *Service) UpdateFeed(groupId int64, feedId string, name string, description string, type string, structureId string, templateId string, rendererTemplateId string, delta int, orderByCol string, orderByType string, targetLayoutFriendlyUrl string, targetPortletId string, contentField string, feedType string, feedVersion float64, serviceContext *liferay.ObjectWrapper) (map[string]interface{}, error) {
+func (s *Service) UpdateFeed(groupId int64, feedId string, name string, description string, _type string, structureId string, templateId string, rendererTemplateId string, delta int, orderByCol string, orderByType string, targetLayoutFriendlyUrl string, targetPortletId string, contentField string, feedType string, feedVersion float64, serviceContext *liferay.ObjectWrapper) (map[string]interface{}, error) {
 	_params := make(map[string]interface{})
 
 	_params["groupId"] = groupId
 	_params["feedId"] = feedId
 	_params["name"] = name
 	_params["description"] = description
-	_params["type"] = type
+	_params["type"] = _type
 	_params["structureId"] = structureId
 	_params["templateId"] = templateId
 	_params["rendererTemplateId"] = rendererTemplateId

@@ -24,7 +24,7 @@ func NewService(s liferay.Session) *Service {
 	return &Service{s}
 }
 
-func (s *Service) AddStructure(groupId int64, parentStructureId int64, classNameId int64, structureKey string, nameMap map[string]interface{}, descriptionMap map[string]interface{}, xsd string, storageType string, type int, serviceContext *liferay.ObjectWrapper) (map[string]interface{}, error) {
+func (s *Service) AddStructure(groupId int64, parentStructureId int64, classNameId int64, structureKey string, nameMap map[string]interface{}, descriptionMap map[string]interface{}, xsd string, storageType string, _type int, serviceContext *liferay.ObjectWrapper) (map[string]interface{}, error) {
 	_params := make(map[string]interface{})
 
 	_params["groupId"] = groupId
@@ -35,7 +35,7 @@ func (s *Service) AddStructure(groupId int64, parentStructureId int64, className
 	_params["descriptionMap"] = descriptionMap
 	_params["xsd"] = xsd
 	_params["storageType"] = storageType
-	_params["type"] = type
+	_params["type"] = _type
 	liferay.MangleObjectWrapper(_params, "serviceContext", "com.liferay.portal.service.ServiceContext", serviceContext)
 
 	_cmd := map[string]interface{}{
@@ -53,7 +53,7 @@ func (s *Service) AddStructure(groupId int64, parentStructureId int64, className
 	return v, err
 }
 
-func (s *Service) AddStructure2(userId int64, groupId int64, parentStructureKey string, classNameId int64, structureKey string, nameMap map[string]interface{}, descriptionMap map[string]interface{}, xsd string, storageType string, type int, serviceContext *liferay.ObjectWrapper) (map[string]interface{}, error) {
+func (s *Service) AddStructure2(userId int64, groupId int64, parentStructureKey string, classNameId int64, structureKey string, nameMap map[string]interface{}, descriptionMap map[string]interface{}, xsd string, storageType string, _type int, serviceContext *liferay.ObjectWrapper) (map[string]interface{}, error) {
 	_params := make(map[string]interface{})
 
 	_params["userId"] = userId
@@ -65,7 +65,7 @@ func (s *Service) AddStructure2(userId int64, groupId int64, parentStructureKey 
 	_params["descriptionMap"] = descriptionMap
 	_params["xsd"] = xsd
 	_params["storageType"] = storageType
-	_params["type"] = type
+	_params["type"] = _type
 	liferay.MangleObjectWrapper(_params, "serviceContext", "com.liferay.portal.service.ServiceContext", serviceContext)
 
 	_cmd := map[string]interface{}{
@@ -294,7 +294,7 @@ func (s *Service) GetStructures2(groupIds []interface{}) ([]interface{}, error) 
 	return v, err
 }
 
-func (s *Service) Search(companyId int64, groupIds []interface{}, classNameIds []interface{}, name string, description string, storageType string, type int, andOperator bool, start int, end int, orderByComparator *liferay.ObjectWrapper) ([]interface{}, error) {
+func (s *Service) Search(companyId int64, groupIds []interface{}, classNameIds []interface{}, name string, description string, storageType string, _type int, andOperator bool, start int, end int, orderByComparator *liferay.ObjectWrapper) ([]interface{}, error) {
 	_params := make(map[string]interface{})
 
 	_params["companyId"] = companyId
@@ -303,7 +303,7 @@ func (s *Service) Search(companyId int64, groupIds []interface{}, classNameIds [
 	_params["name"] = name
 	_params["description"] = description
 	_params["storageType"] = storageType
-	_params["type"] = type
+	_params["type"] = _type
 	_params["andOperator"] = andOperator
 	_params["start"] = start
 	_params["end"] = end
@@ -373,7 +373,7 @@ func (s *Service) SearchCount(companyId int64, groupIds []interface{}, className
 	return v, err
 }
 
-func (s *Service) SearchCount2(companyId int64, groupIds []interface{}, classNameIds []interface{}, name string, description string, storageType string, type int, andOperator bool) (int, error) {
+func (s *Service) SearchCount2(companyId int64, groupIds []interface{}, classNameIds []interface{}, name string, description string, storageType string, _type int, andOperator bool) (int, error) {
 	_params := make(map[string]interface{})
 
 	_params["companyId"] = companyId
@@ -382,7 +382,7 @@ func (s *Service) SearchCount2(companyId int64, groupIds []interface{}, classNam
 	_params["name"] = name
 	_params["description"] = description
 	_params["storageType"] = storageType
-	_params["type"] = type
+	_params["type"] = _type
 	_params["andOperator"] = andOperator
 
 	_cmd := map[string]interface{}{

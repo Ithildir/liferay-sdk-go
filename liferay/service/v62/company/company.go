@@ -138,7 +138,7 @@ func (s *Service) GetCompanyByWebId(webId string) (map[string]interface{}, error
 	return v, err
 }
 
-func (s *Service) UpdateCompany(companyId int64, virtualHost string, mx string, homeURL string, name string, legalName string, legalId string, legalType string, sicCode string, tickerSymbol string, industry string, type string, size string) (map[string]interface{}, error) {
+func (s *Service) UpdateCompany(companyId int64, virtualHost string, mx string, homeURL string, name string, legalName string, legalId string, legalType string, sicCode string, tickerSymbol string, industry string, _type string, size string) (map[string]interface{}, error) {
 	_params := make(map[string]interface{})
 
 	_params["companyId"] = companyId
@@ -152,7 +152,7 @@ func (s *Service) UpdateCompany(companyId int64, virtualHost string, mx string, 
 	_params["sicCode"] = sicCode
 	_params["tickerSymbol"] = tickerSymbol
 	_params["industry"] = industry
-	_params["type"] = type
+	_params["type"] = _type
 	_params["size"] = size
 
 	_cmd := map[string]interface{}{

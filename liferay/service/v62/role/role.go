@@ -24,13 +24,13 @@ func NewService(s liferay.Session) *Service {
 	return &Service{s}
 }
 
-func (s *Service) AddRole(name string, titleMap map[string]interface{}, descriptionMap map[string]interface{}, type int) (map[string]interface{}, error) {
+func (s *Service) AddRole(name string, titleMap map[string]interface{}, descriptionMap map[string]interface{}, _type int) (map[string]interface{}, error) {
 	_params := make(map[string]interface{})
 
 	_params["name"] = name
 	_params["titleMap"] = titleMap
 	_params["descriptionMap"] = descriptionMap
-	_params["type"] = type
+	_params["type"] = _type
 
 	_cmd := map[string]interface{}{
 		"/role/add-role": _params,
@@ -47,7 +47,7 @@ func (s *Service) AddRole(name string, titleMap map[string]interface{}, descript
 	return v, err
 }
 
-func (s *Service) AddRole2(className string, classPK int64, name string, titleMap map[string]interface{}, descriptionMap map[string]interface{}, type int, subtype string, serviceContext *liferay.ObjectWrapper) (map[string]interface{}, error) {
+func (s *Service) AddRole2(className string, classPK int64, name string, titleMap map[string]interface{}, descriptionMap map[string]interface{}, _type int, subtype string, serviceContext *liferay.ObjectWrapper) (map[string]interface{}, error) {
 	_params := make(map[string]interface{})
 
 	_params["className"] = className
@@ -55,7 +55,7 @@ func (s *Service) AddRole2(className string, classPK int64, name string, titleMa
 	_params["name"] = name
 	_params["titleMap"] = titleMap
 	_params["descriptionMap"] = descriptionMap
-	_params["type"] = type
+	_params["type"] = _type
 	_params["subtype"] = subtype
 	liferay.MangleObjectWrapper(_params, "serviceContext", "com.liferay.portal.service.ServiceContext", serviceContext)
 

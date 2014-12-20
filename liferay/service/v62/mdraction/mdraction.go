@@ -24,13 +24,13 @@ func NewService(s liferay.Session) *Service {
 	return &Service{s}
 }
 
-func (s *Service) AddAction(ruleGroupInstanceId int64, nameMap map[string]interface{}, descriptionMap map[string]interface{}, type string, typeSettings string, serviceContext *liferay.ObjectWrapper) (map[string]interface{}, error) {
+func (s *Service) AddAction(ruleGroupInstanceId int64, nameMap map[string]interface{}, descriptionMap map[string]interface{}, _type string, typeSettings string, serviceContext *liferay.ObjectWrapper) (map[string]interface{}, error) {
 	_params := make(map[string]interface{})
 
 	_params["ruleGroupInstanceId"] = ruleGroupInstanceId
 	_params["nameMap"] = nameMap
 	_params["descriptionMap"] = descriptionMap
-	_params["type"] = type
+	_params["type"] = _type
 	_params["typeSettings"] = typeSettings
 	liferay.MangleObjectWrapper(_params, "serviceContext", "com.liferay.portal.service.ServiceContext", serviceContext)
 
@@ -49,13 +49,13 @@ func (s *Service) AddAction(ruleGroupInstanceId int64, nameMap map[string]interf
 	return v, err
 }
 
-func (s *Service) AddAction2(ruleGroupInstanceId int64, nameMap map[string]interface{}, descriptionMap map[string]interface{}, type string, typeSettingsProperties *liferay.ObjectWrapper, serviceContext *liferay.ObjectWrapper) (map[string]interface{}, error) {
+func (s *Service) AddAction2(ruleGroupInstanceId int64, nameMap map[string]interface{}, descriptionMap map[string]interface{}, _type string, typeSettingsProperties *liferay.ObjectWrapper, serviceContext *liferay.ObjectWrapper) (map[string]interface{}, error) {
 	_params := make(map[string]interface{})
 
 	_params["ruleGroupInstanceId"] = ruleGroupInstanceId
 	_params["nameMap"] = nameMap
 	_params["descriptionMap"] = descriptionMap
-	_params["type"] = type
+	_params["type"] = _type
 	liferay.MangleObjectWrapper(_params, "typeSettingsProperties", "com.liferay.portal.kernel.util.UnicodeProperties", typeSettingsProperties)
 	liferay.MangleObjectWrapper(_params, "serviceContext", "com.liferay.portal.service.ServiceContext", serviceContext)
 
@@ -128,13 +128,13 @@ func (s *Service) GetAction(actionId int64) (map[string]interface{}, error) {
 	return v, err
 }
 
-func (s *Service) UpdateAction(actionId int64, nameMap map[string]interface{}, descriptionMap map[string]interface{}, type string, typeSettings string, serviceContext *liferay.ObjectWrapper) (map[string]interface{}, error) {
+func (s *Service) UpdateAction(actionId int64, nameMap map[string]interface{}, descriptionMap map[string]interface{}, _type string, typeSettings string, serviceContext *liferay.ObjectWrapper) (map[string]interface{}, error) {
 	_params := make(map[string]interface{})
 
 	_params["actionId"] = actionId
 	_params["nameMap"] = nameMap
 	_params["descriptionMap"] = descriptionMap
-	_params["type"] = type
+	_params["type"] = _type
 	_params["typeSettings"] = typeSettings
 	liferay.MangleObjectWrapper(_params, "serviceContext", "com.liferay.portal.service.ServiceContext", serviceContext)
 
@@ -153,13 +153,13 @@ func (s *Service) UpdateAction(actionId int64, nameMap map[string]interface{}, d
 	return v, err
 }
 
-func (s *Service) UpdateAction2(actionId int64, nameMap map[string]interface{}, descriptionMap map[string]interface{}, type string, typeSettingsProperties *liferay.ObjectWrapper, serviceContext *liferay.ObjectWrapper) (map[string]interface{}, error) {
+func (s *Service) UpdateAction2(actionId int64, nameMap map[string]interface{}, descriptionMap map[string]interface{}, _type string, typeSettingsProperties *liferay.ObjectWrapper, serviceContext *liferay.ObjectWrapper) (map[string]interface{}, error) {
 	_params := make(map[string]interface{})
 
 	_params["actionId"] = actionId
 	_params["nameMap"] = nameMap
 	_params["descriptionMap"] = descriptionMap
-	_params["type"] = type
+	_params["type"] = _type
 	liferay.MangleObjectWrapper(_params, "typeSettingsProperties", "com.liferay.portal.kernel.util.UnicodeProperties", typeSettingsProperties)
 	liferay.MangleObjectWrapper(_params, "serviceContext", "com.liferay.portal.service.ServiceContext", serviceContext)
 

@@ -44,10 +44,10 @@ func (s *Service) GetListType(listTypeId int) (map[string]interface{}, error) {
 	return v, err
 }
 
-func (s *Service) GetListTypes(type string) ([]interface{}, error) {
+func (s *Service) GetListTypes(_type string) ([]interface{}, error) {
 	_params := make(map[string]interface{})
 
-	_params["type"] = type
+	_params["type"] = _type
 
 	_cmd := map[string]interface{}{
 		"/listtype/get-list-types": _params,
@@ -64,11 +64,11 @@ func (s *Service) GetListTypes(type string) ([]interface{}, error) {
 	return v, err
 }
 
-func (s *Service) Validate(listTypeId int, type string) error {
+func (s *Service) Validate(listTypeId int, _type string) error {
 	_params := make(map[string]interface{})
 
 	_params["listTypeId"] = listTypeId
-	_params["type"] = type
+	_params["type"] = _type
 
 	_cmd := map[string]interface{}{
 		"/listtype/validate": _params,
@@ -79,12 +79,12 @@ func (s *Service) Validate(listTypeId int, type string) error {
 	return err
 }
 
-func (s *Service) Validate2(listTypeId int, classNameId int64, type string) error {
+func (s *Service) Validate2(listTypeId int, classNameId int64, _type string) error {
 	_params := make(map[string]interface{})
 
 	_params["listTypeId"] = listTypeId
 	_params["classNameId"] = classNameId
-	_params["type"] = type
+	_params["type"] = _type
 
 	_cmd := map[string]interface{}{
 		"/listtype/validate": _params,

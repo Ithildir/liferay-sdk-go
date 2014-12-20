@@ -24,11 +24,11 @@ func NewService(s liferay.Session) *Service {
 	return &Service{s}
 }
 
-func (s *Service) AddProductEntry(name string, type string, tags string, shortDescription string, longDescription string, pageURL string, author string, repoGroupId string, repoArtifactId string, licenseIds []interface{}, thumbnails []interface{}, fullImages []interface{}, serviceContext *liferay.ObjectWrapper) (map[string]interface{}, error) {
+func (s *Service) AddProductEntry(name string, _type string, tags string, shortDescription string, longDescription string, pageURL string, author string, repoGroupId string, repoArtifactId string, licenseIds []interface{}, thumbnails []interface{}, fullImages []interface{}, serviceContext *liferay.ObjectWrapper) (map[string]interface{}, error) {
 	_params := make(map[string]interface{})
 
 	_params["name"] = name
-	_params["type"] = type
+	_params["type"] = _type
 	_params["tags"] = tags
 	_params["shortDescription"] = shortDescription
 	_params["longDescription"] = longDescription
@@ -90,12 +90,12 @@ func (s *Service) GetProductEntry(productEntryId int64) (map[string]interface{},
 	return v, err
 }
 
-func (s *Service) UpdateProductEntry(productEntryId int64, name string, type string, tags string, shortDescription string, longDescription string, pageURL string, author string, repoGroupId string, repoArtifactId string, licenseIds []interface{}, thumbnails []interface{}, fullImages []interface{}) (map[string]interface{}, error) {
+func (s *Service) UpdateProductEntry(productEntryId int64, name string, _type string, tags string, shortDescription string, longDescription string, pageURL string, author string, repoGroupId string, repoArtifactId string, licenseIds []interface{}, thumbnails []interface{}, fullImages []interface{}) (map[string]interface{}, error) {
 	_params := make(map[string]interface{})
 
 	_params["productEntryId"] = productEntryId
 	_params["name"] = name
-	_params["type"] = type
+	_params["type"] = _type
 	_params["tags"] = tags
 	_params["shortDescription"] = shortDescription
 	_params["longDescription"] = longDescription

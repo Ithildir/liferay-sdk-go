@@ -24,12 +24,12 @@ func NewService(s liferay.Session) *Service {
 	return &Service{s}
 }
 
-func (s *Service) AddColumn(tableId int64, name string, type int) (map[string]interface{}, error) {
+func (s *Service) AddColumn(tableId int64, name string, _type int) (map[string]interface{}, error) {
 	_params := make(map[string]interface{})
 
 	_params["tableId"] = tableId
 	_params["name"] = name
-	_params["type"] = type
+	_params["type"] = _type
 
 	_cmd := map[string]interface{}{
 		"/expandocolumn/add-column": _params,
@@ -46,12 +46,12 @@ func (s *Service) AddColumn(tableId int64, name string, type int) (map[string]in
 	return v, err
 }
 
-func (s *Service) AddColumn2(tableId int64, name string, type int, defaultData map[string]interface{}) (map[string]interface{}, error) {
+func (s *Service) AddColumn2(tableId int64, name string, _type int, defaultData map[string]interface{}) (map[string]interface{}, error) {
 	_params := make(map[string]interface{})
 
 	_params["tableId"] = tableId
 	_params["name"] = name
-	_params["type"] = type
+	_params["type"] = _type
 	_params["defaultData"] = defaultData
 
 	_cmd := map[string]interface{}{
@@ -83,12 +83,12 @@ func (s *Service) DeleteColumn(columnId int64) error {
 	return err
 }
 
-func (s *Service) UpdateColumn(columnId int64, name string, type int) (map[string]interface{}, error) {
+func (s *Service) UpdateColumn(columnId int64, name string, _type int) (map[string]interface{}, error) {
 	_params := make(map[string]interface{})
 
 	_params["columnId"] = columnId
 	_params["name"] = name
-	_params["type"] = type
+	_params["type"] = _type
 
 	_cmd := map[string]interface{}{
 		"/expandocolumn/update-column": _params,
@@ -105,12 +105,12 @@ func (s *Service) UpdateColumn(columnId int64, name string, type int) (map[strin
 	return v, err
 }
 
-func (s *Service) UpdateColumn2(columnId int64, name string, type int, defaultData map[string]interface{}) (map[string]interface{}, error) {
+func (s *Service) UpdateColumn2(columnId int64, name string, _type int, defaultData map[string]interface{}) (map[string]interface{}, error) {
 	_params := make(map[string]interface{})
 
 	_params["columnId"] = columnId
 	_params["name"] = name
-	_params["type"] = type
+	_params["type"] = _type
 	_params["defaultData"] = defaultData
 
 	_cmd := map[string]interface{}{

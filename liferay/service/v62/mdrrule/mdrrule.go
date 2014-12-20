@@ -24,13 +24,13 @@ func NewService(s liferay.Session) *Service {
 	return &Service{s}
 }
 
-func (s *Service) AddRule(ruleGroupId int64, nameMap map[string]interface{}, descriptionMap map[string]interface{}, type string, typeSettings string, serviceContext *liferay.ObjectWrapper) (map[string]interface{}, error) {
+func (s *Service) AddRule(ruleGroupId int64, nameMap map[string]interface{}, descriptionMap map[string]interface{}, _type string, typeSettings string, serviceContext *liferay.ObjectWrapper) (map[string]interface{}, error) {
 	_params := make(map[string]interface{})
 
 	_params["ruleGroupId"] = ruleGroupId
 	_params["nameMap"] = nameMap
 	_params["descriptionMap"] = descriptionMap
-	_params["type"] = type
+	_params["type"] = _type
 	_params["typeSettings"] = typeSettings
 	liferay.MangleObjectWrapper(_params, "serviceContext", "com.liferay.portal.service.ServiceContext", serviceContext)
 
@@ -103,13 +103,13 @@ func (s *Service) GetRule(ruleId int64) (map[string]interface{}, error) {
 	return v, err
 }
 
-func (s *Service) UpdateRule(ruleId int64, nameMap map[string]interface{}, descriptionMap map[string]interface{}, type string, typeSettings string, serviceContext *liferay.ObjectWrapper) (map[string]interface{}, error) {
+func (s *Service) UpdateRule(ruleId int64, nameMap map[string]interface{}, descriptionMap map[string]interface{}, _type string, typeSettings string, serviceContext *liferay.ObjectWrapper) (map[string]interface{}, error) {
 	_params := make(map[string]interface{})
 
 	_params["ruleId"] = ruleId
 	_params["nameMap"] = nameMap
 	_params["descriptionMap"] = descriptionMap
-	_params["type"] = type
+	_params["type"] = _type
 	_params["typeSettings"] = typeSettings
 	liferay.MangleObjectWrapper(_params, "serviceContext", "com.liferay.portal.service.ServiceContext", serviceContext)
 
@@ -128,13 +128,13 @@ func (s *Service) UpdateRule(ruleId int64, nameMap map[string]interface{}, descr
 	return v, err
 }
 
-func (s *Service) UpdateRule2(ruleId int64, nameMap map[string]interface{}, descriptionMap map[string]interface{}, type string, typeSettingsProperties *liferay.ObjectWrapper, serviceContext *liferay.ObjectWrapper) (map[string]interface{}, error) {
+func (s *Service) UpdateRule2(ruleId int64, nameMap map[string]interface{}, descriptionMap map[string]interface{}, _type string, typeSettingsProperties *liferay.ObjectWrapper, serviceContext *liferay.ObjectWrapper) (map[string]interface{}, error) {
 	_params := make(map[string]interface{})
 
 	_params["ruleId"] = ruleId
 	_params["nameMap"] = nameMap
 	_params["descriptionMap"] = descriptionMap
-	_params["type"] = type
+	_params["type"] = _type
 	liferay.MangleObjectWrapper(_params, "typeSettingsProperties", "com.liferay.portal.kernel.util.UnicodeProperties", typeSettingsProperties)
 	liferay.MangleObjectWrapper(_params, "serviceContext", "com.liferay.portal.service.ServiceContext", serviceContext)
 

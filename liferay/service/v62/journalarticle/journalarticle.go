@@ -13,6 +13,8 @@
 package journalarticle
 
 import (
+	"io"
+
 	"github.com/ithildir/liferay-sdk-go/liferay"
 )
 
@@ -24,7 +26,7 @@ func NewService(s liferay.Session) *Service {
 	return &Service{s}
 }
 
-func (s *Service) AddArticle(groupId int64, folderId int64, classNameId int64, classPK int64, articleId string, autoArticleId bool, titleMap map[string]interface{}, descriptionMap map[string]interface{}, content string, type string, ddmStructureKey string, ddmTemplateKey string, layoutUuid string, displayDateMonth int, displayDateDay int, displayDateYear int, displayDateHour int, displayDateMinute int, expirationDateMonth int, expirationDateDay int, expirationDateYear int, expirationDateHour int, expirationDateMinute int, neverExpire bool, reviewDateMonth int, reviewDateDay int, reviewDateYear int, reviewDateHour int, reviewDateMinute int, neverReview bool, indexable bool, articleURL string, serviceContext *liferay.ObjectWrapper) (map[string]interface{}, error) {
+func (s *Service) AddArticle(groupId int64, folderId int64, classNameId int64, classPK int64, articleId string, autoArticleId bool, titleMap map[string]interface{}, descriptionMap map[string]interface{}, content string, _type string, ddmStructureKey string, ddmTemplateKey string, layoutUuid string, displayDateMonth int, displayDateDay int, displayDateYear int, displayDateHour int, displayDateMinute int, expirationDateMonth int, expirationDateDay int, expirationDateYear int, expirationDateHour int, expirationDateMinute int, neverExpire bool, reviewDateMonth int, reviewDateDay int, reviewDateYear int, reviewDateHour int, reviewDateMinute int, neverReview bool, indexable bool, articleURL string, serviceContext *liferay.ObjectWrapper) (map[string]interface{}, error) {
 	_params := make(map[string]interface{})
 
 	_params["groupId"] = groupId
@@ -36,7 +38,7 @@ func (s *Service) AddArticle(groupId int64, folderId int64, classNameId int64, c
 	_params["titleMap"] = titleMap
 	_params["descriptionMap"] = descriptionMap
 	_params["content"] = content
-	_params["type"] = type
+	_params["type"] = _type
 	_params["ddmStructureKey"] = ddmStructureKey
 	_params["ddmTemplateKey"] = ddmTemplateKey
 	_params["layoutUuid"] = layoutUuid
@@ -76,7 +78,7 @@ func (s *Service) AddArticle(groupId int64, folderId int64, classNameId int64, c
 	return v, err
 }
 
-func (s *Service) AddArticle2(groupId int64, folderId int64, classNameId int64, classPK int64, articleId string, autoArticleId bool, titleMap map[string]interface{}, descriptionMap map[string]interface{}, content string, type string, ddmStructureKey string, ddmTemplateKey string, layoutUuid string, displayDateMonth int, displayDateDay int, displayDateYear int, displayDateHour int, displayDateMinute int, expirationDateMonth int, expirationDateDay int, expirationDateYear int, expirationDateHour int, expirationDateMinute int, neverExpire bool, reviewDateMonth int, reviewDateDay int, reviewDateYear int, reviewDateHour int, reviewDateMinute int, neverReview bool, indexable bool, smallImage bool, smallImageURL string, smallFile io.Reader, images map[string]interface{}, articleURL string, serviceContext *liferay.ObjectWrapper) (map[string]interface{}, error) {
+func (s *Service) AddArticle2(groupId int64, folderId int64, classNameId int64, classPK int64, articleId string, autoArticleId bool, titleMap map[string]interface{}, descriptionMap map[string]interface{}, content string, _type string, ddmStructureKey string, ddmTemplateKey string, layoutUuid string, displayDateMonth int, displayDateDay int, displayDateYear int, displayDateHour int, displayDateMinute int, expirationDateMonth int, expirationDateDay int, expirationDateYear int, expirationDateHour int, expirationDateMinute int, neverExpire bool, reviewDateMonth int, reviewDateDay int, reviewDateYear int, reviewDateHour int, reviewDateMinute int, neverReview bool, indexable bool, smallImage bool, smallImageURL string, smallFile io.Reader, images map[string]interface{}, articleURL string, serviceContext *liferay.ObjectWrapper) (map[string]interface{}, error) {
 	_params := make(map[string]interface{})
 
 	_params["groupId"] = groupId
@@ -88,7 +90,7 @@ func (s *Service) AddArticle2(groupId int64, folderId int64, classNameId int64, 
 	_params["titleMap"] = titleMap
 	_params["descriptionMap"] = descriptionMap
 	_params["content"] = content
-	_params["type"] = type
+	_params["type"] = _type
 	_params["ddmStructureKey"] = ddmStructureKey
 	_params["ddmTemplateKey"] = ddmTemplateKey
 	_params["layoutUuid"] = layoutUuid
@@ -985,7 +987,7 @@ func (s *Service) RestoreArticleFromTrash2(groupId int64, articleId string) erro
 	return err
 }
 
-func (s *Service) Search(companyId int64, groupId int64, folderIds []interface{}, classNameId int64, keywords string, version *liferay.ObjectWrapper, type string, ddmStructureKey string, ddmTemplateKey string, displayDateGT int64, displayDateLT int64, status int, reviewDate int64, start int, end int, obc *liferay.ObjectWrapper) ([]interface{}, error) {
+func (s *Service) Search(companyId int64, groupId int64, folderIds []interface{}, classNameId int64, keywords string, version *liferay.ObjectWrapper, _type string, ddmStructureKey string, ddmTemplateKey string, displayDateGT int64, displayDateLT int64, status int, reviewDate int64, start int, end int, obc *liferay.ObjectWrapper) ([]interface{}, error) {
 	_params := make(map[string]interface{})
 
 	_params["companyId"] = companyId
@@ -994,7 +996,7 @@ func (s *Service) Search(companyId int64, groupId int64, folderIds []interface{}
 	_params["classNameId"] = classNameId
 	_params["keywords"] = keywords
 	liferay.MangleObjectWrapper(_params, "version", "java.lang.Double", version)
-	_params["type"] = type
+	_params["type"] = _type
 	_params["ddmStructureKey"] = ddmStructureKey
 	_params["ddmTemplateKey"] = ddmTemplateKey
 	_params["displayDateGT"] = displayDateGT
@@ -1020,7 +1022,7 @@ func (s *Service) Search(companyId int64, groupId int64, folderIds []interface{}
 	return v, err
 }
 
-func (s *Service) Search2(companyId int64, groupId int64, folderIds []interface{}, classNameId int64, articleId string, version *liferay.ObjectWrapper, title string, description string, content string, type string, ddmStructureKey string, ddmTemplateKey string, displayDateGT int64, displayDateLT int64, status int, reviewDate int64, andOperator bool, start int, end int, obc *liferay.ObjectWrapper) ([]interface{}, error) {
+func (s *Service) Search2(companyId int64, groupId int64, folderIds []interface{}, classNameId int64, articleId string, version *liferay.ObjectWrapper, title string, description string, content string, _type string, ddmStructureKey string, ddmTemplateKey string, displayDateGT int64, displayDateLT int64, status int, reviewDate int64, andOperator bool, start int, end int, obc *liferay.ObjectWrapper) ([]interface{}, error) {
 	_params := make(map[string]interface{})
 
 	_params["companyId"] = companyId
@@ -1032,7 +1034,7 @@ func (s *Service) Search2(companyId int64, groupId int64, folderIds []interface{
 	_params["title"] = title
 	_params["description"] = description
 	_params["content"] = content
-	_params["type"] = type
+	_params["type"] = _type
 	_params["ddmStructureKey"] = ddmStructureKey
 	_params["ddmTemplateKey"] = ddmTemplateKey
 	_params["displayDateGT"] = displayDateGT
@@ -1059,7 +1061,7 @@ func (s *Service) Search2(companyId int64, groupId int64, folderIds []interface{
 	return v, err
 }
 
-func (s *Service) Search3(companyId int64, groupId int64, folderIds []interface{}, classNameId int64, articleId string, version *liferay.ObjectWrapper, title string, description string, content string, type string, ddmStructureKeys []interface{}, ddmTemplateKeys []interface{}, displayDateGT int64, displayDateLT int64, status int, reviewDate int64, andOperator bool, start int, end int, obc *liferay.ObjectWrapper) ([]interface{}, error) {
+func (s *Service) Search3(companyId int64, groupId int64, folderIds []interface{}, classNameId int64, articleId string, version *liferay.ObjectWrapper, title string, description string, content string, _type string, ddmStructureKeys []interface{}, ddmTemplateKeys []interface{}, displayDateGT int64, displayDateLT int64, status int, reviewDate int64, andOperator bool, start int, end int, obc *liferay.ObjectWrapper) ([]interface{}, error) {
 	_params := make(map[string]interface{})
 
 	_params["companyId"] = companyId
@@ -1071,7 +1073,7 @@ func (s *Service) Search3(companyId int64, groupId int64, folderIds []interface{
 	_params["title"] = title
 	_params["description"] = description
 	_params["content"] = content
-	_params["type"] = type
+	_params["type"] = _type
 	_params["ddmStructureKeys"] = ddmStructureKeys
 	_params["ddmTemplateKeys"] = ddmTemplateKeys
 	_params["displayDateGT"] = displayDateGT
@@ -1122,7 +1124,7 @@ func (s *Service) Search4(groupId int64, creatorUserId int64, status int, start 
 	return v, err
 }
 
-func (s *Service) SearchCount(companyId int64, groupId int64, folderIds []interface{}, classNameId int64, keywords string, version *liferay.ObjectWrapper, type string, ddmStructureKey string, ddmTemplateKey string, displayDateGT int64, displayDateLT int64, status int, reviewDate int64) (int, error) {
+func (s *Service) SearchCount(companyId int64, groupId int64, folderIds []interface{}, classNameId int64, keywords string, version *liferay.ObjectWrapper, _type string, ddmStructureKey string, ddmTemplateKey string, displayDateGT int64, displayDateLT int64, status int, reviewDate int64) (int, error) {
 	_params := make(map[string]interface{})
 
 	_params["companyId"] = companyId
@@ -1131,7 +1133,7 @@ func (s *Service) SearchCount(companyId int64, groupId int64, folderIds []interf
 	_params["classNameId"] = classNameId
 	_params["keywords"] = keywords
 	liferay.MangleObjectWrapper(_params, "version", "java.lang.Double", version)
-	_params["type"] = type
+	_params["type"] = _type
 	_params["ddmStructureKey"] = ddmStructureKey
 	_params["ddmTemplateKey"] = ddmTemplateKey
 	_params["displayDateGT"] = displayDateGT
@@ -1154,7 +1156,7 @@ func (s *Service) SearchCount(companyId int64, groupId int64, folderIds []interf
 	return v, err
 }
 
-func (s *Service) SearchCount2(companyId int64, groupId int64, folderIds []interface{}, classNameId int64, articleId string, version *liferay.ObjectWrapper, title string, description string, content string, type string, ddmStructureKey string, ddmTemplateKey string, displayDateGT int64, displayDateLT int64, status int, reviewDate int64, andOperator bool) (int, error) {
+func (s *Service) SearchCount2(companyId int64, groupId int64, folderIds []interface{}, classNameId int64, articleId string, version *liferay.ObjectWrapper, title string, description string, content string, _type string, ddmStructureKey string, ddmTemplateKey string, displayDateGT int64, displayDateLT int64, status int, reviewDate int64, andOperator bool) (int, error) {
 	_params := make(map[string]interface{})
 
 	_params["companyId"] = companyId
@@ -1166,7 +1168,7 @@ func (s *Service) SearchCount2(companyId int64, groupId int64, folderIds []inter
 	_params["title"] = title
 	_params["description"] = description
 	_params["content"] = content
-	_params["type"] = type
+	_params["type"] = _type
 	_params["ddmStructureKey"] = ddmStructureKey
 	_params["ddmTemplateKey"] = ddmTemplateKey
 	_params["displayDateGT"] = displayDateGT
@@ -1190,7 +1192,7 @@ func (s *Service) SearchCount2(companyId int64, groupId int64, folderIds []inter
 	return v, err
 }
 
-func (s *Service) SearchCount3(companyId int64, groupId int64, folderIds []interface{}, classNameId int64, articleId string, version *liferay.ObjectWrapper, title string, description string, content string, type string, ddmStructureKeys []interface{}, ddmTemplateKeys []interface{}, displayDateGT int64, displayDateLT int64, status int, reviewDate int64, andOperator bool) (int, error) {
+func (s *Service) SearchCount3(companyId int64, groupId int64, folderIds []interface{}, classNameId int64, articleId string, version *liferay.ObjectWrapper, title string, description string, content string, _type string, ddmStructureKeys []interface{}, ddmTemplateKeys []interface{}, displayDateGT int64, displayDateLT int64, status int, reviewDate int64, andOperator bool) (int, error) {
 	_params := make(map[string]interface{})
 
 	_params["companyId"] = companyId
@@ -1202,7 +1204,7 @@ func (s *Service) SearchCount3(companyId int64, groupId int64, folderIds []inter
 	_params["title"] = title
 	_params["description"] = description
 	_params["content"] = content
-	_params["type"] = type
+	_params["type"] = _type
 	_params["ddmStructureKeys"] = ddmStructureKeys
 	_params["ddmTemplateKeys"] = ddmTemplateKeys
 	_params["displayDateGT"] = displayDateGT
@@ -1283,7 +1285,7 @@ func (s *Service) UpdateArticle(userId int64, groupId int64, folderId int64, art
 	return v, err
 }
 
-func (s *Service) UpdateArticle2(groupId int64, folderId int64, articleId string, version float64, titleMap map[string]interface{}, descriptionMap map[string]interface{}, content string, type string, ddmStructureKey string, ddmTemplateKey string, layoutUuid string, displayDateMonth int, displayDateDay int, displayDateYear int, displayDateHour int, displayDateMinute int, expirationDateMonth int, expirationDateDay int, expirationDateYear int, expirationDateHour int, expirationDateMinute int, neverExpire bool, reviewDateMonth int, reviewDateDay int, reviewDateYear int, reviewDateHour int, reviewDateMinute int, neverReview bool, indexable bool, smallImage bool, smallImageURL string, smallFile io.Reader, images map[string]interface{}, articleURL string, serviceContext *liferay.ObjectWrapper) (map[string]interface{}, error) {
+func (s *Service) UpdateArticle2(groupId int64, folderId int64, articleId string, version float64, titleMap map[string]interface{}, descriptionMap map[string]interface{}, content string, _type string, ddmStructureKey string, ddmTemplateKey string, layoutUuid string, displayDateMonth int, displayDateDay int, displayDateYear int, displayDateHour int, displayDateMinute int, expirationDateMonth int, expirationDateDay int, expirationDateYear int, expirationDateHour int, expirationDateMinute int, neverExpire bool, reviewDateMonth int, reviewDateDay int, reviewDateYear int, reviewDateHour int, reviewDateMinute int, neverReview bool, indexable bool, smallImage bool, smallImageURL string, smallFile io.Reader, images map[string]interface{}, articleURL string, serviceContext *liferay.ObjectWrapper) (map[string]interface{}, error) {
 	_params := make(map[string]interface{})
 
 	_params["groupId"] = groupId
@@ -1293,7 +1295,7 @@ func (s *Service) UpdateArticle2(groupId int64, folderId int64, articleId string
 	_params["titleMap"] = titleMap
 	_params["descriptionMap"] = descriptionMap
 	_params["content"] = content
-	_params["type"] = type
+	_params["type"] = _type
 	_params["ddmStructureKey"] = ddmStructureKey
 	_params["ddmTemplateKey"] = ddmTemplateKey
 	_params["layoutUuid"] = layoutUuid

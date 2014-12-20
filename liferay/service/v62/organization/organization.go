@@ -39,12 +39,12 @@ func (s *Service) AddGroupOrganizations(groupId int64, organizationIds []interfa
 	return err
 }
 
-func (s *Service) AddOrganization(parentOrganizationId int64, name string, type string, recursable bool, regionId int64, countryId int64, statusId int, comments string, site bool, serviceContext *liferay.ObjectWrapper) (map[string]interface{}, error) {
+func (s *Service) AddOrganization(parentOrganizationId int64, name string, _type string, recursable bool, regionId int64, countryId int64, statusId int, comments string, site bool, serviceContext *liferay.ObjectWrapper) (map[string]interface{}, error) {
 	_params := make(map[string]interface{})
 
 	_params["parentOrganizationId"] = parentOrganizationId
 	_params["name"] = name
-	_params["type"] = type
+	_params["type"] = _type
 	_params["recursable"] = recursable
 	_params["regionId"] = regionId
 	_params["countryId"] = countryId
@@ -68,12 +68,12 @@ func (s *Service) AddOrganization(parentOrganizationId int64, name string, type 
 	return v, err
 }
 
-func (s *Service) AddOrganization2(parentOrganizationId int64, name string, type string, regionId int64, countryId int64, statusId int, comments string, site bool, addresses []interface{}, emailAddresses []interface{}, orgLabors []interface{}, phones []interface{}, websites []interface{}, serviceContext *liferay.ObjectWrapper) (map[string]interface{}, error) {
+func (s *Service) AddOrganization2(parentOrganizationId int64, name string, _type string, regionId int64, countryId int64, statusId int, comments string, site bool, addresses []interface{}, emailAddresses []interface{}, orgLabors []interface{}, phones []interface{}, websites []interface{}, serviceContext *liferay.ObjectWrapper) (map[string]interface{}, error) {
 	_params := make(map[string]interface{})
 
 	_params["parentOrganizationId"] = parentOrganizationId
 	_params["name"] = name
-	_params["type"] = type
+	_params["type"] = _type
 	_params["regionId"] = regionId
 	_params["countryId"] = countryId
 	_params["statusId"] = statusId
@@ -101,12 +101,12 @@ func (s *Service) AddOrganization2(parentOrganizationId int64, name string, type
 	return v, err
 }
 
-func (s *Service) AddOrganization3(parentOrganizationId int64, name string, type string, recursable bool, regionId int64, countryId int64, statusId int, comments string, site bool, addresses []interface{}, emailAddresses []interface{}, orgLabors []interface{}, phones []interface{}, websites []interface{}, serviceContext *liferay.ObjectWrapper) (map[string]interface{}, error) {
+func (s *Service) AddOrganization3(parentOrganizationId int64, name string, _type string, recursable bool, regionId int64, countryId int64, statusId int, comments string, site bool, addresses []interface{}, emailAddresses []interface{}, orgLabors []interface{}, phones []interface{}, websites []interface{}, serviceContext *liferay.ObjectWrapper) (map[string]interface{}, error) {
 	_params := make(map[string]interface{})
 
 	_params["parentOrganizationId"] = parentOrganizationId
 	_params["name"] = name
-	_params["type"] = type
+	_params["type"] = _type
 	_params["recursable"] = recursable
 	_params["regionId"] = regionId
 	_params["countryId"] = countryId
@@ -135,12 +135,12 @@ func (s *Service) AddOrganization3(parentOrganizationId int64, name string, type
 	return v, err
 }
 
-func (s *Service) AddOrganization4(parentOrganizationId int64, name string, type string, regionId int64, countryId int64, statusId int, comments string, site bool, serviceContext *liferay.ObjectWrapper) (map[string]interface{}, error) {
+func (s *Service) AddOrganization4(parentOrganizationId int64, name string, _type string, regionId int64, countryId int64, statusId int, comments string, site bool, serviceContext *liferay.ObjectWrapper) (map[string]interface{}, error) {
 	_params := make(map[string]interface{})
 
 	_params["parentOrganizationId"] = parentOrganizationId
 	_params["name"] = name
-	_params["type"] = type
+	_params["type"] = _type
 	_params["regionId"] = regionId
 	_params["countryId"] = countryId
 	_params["statusId"] = statusId
@@ -398,13 +398,13 @@ func (s *Service) UnsetPasswordPolicyOrganizations(passwordPolicyId int64, organ
 	return err
 }
 
-func (s *Service) UpdateOrganization(organizationId int64, parentOrganizationId int64, name string, type string, regionId int64, countryId int64, statusId int, comments string, site bool, serviceContext *liferay.ObjectWrapper) (map[string]interface{}, error) {
+func (s *Service) UpdateOrganization(organizationId int64, parentOrganizationId int64, name string, _type string, regionId int64, countryId int64, statusId int, comments string, site bool, serviceContext *liferay.ObjectWrapper) (map[string]interface{}, error) {
 	_params := make(map[string]interface{})
 
 	_params["organizationId"] = organizationId
 	_params["parentOrganizationId"] = parentOrganizationId
 	_params["name"] = name
-	_params["type"] = type
+	_params["type"] = _type
 	_params["regionId"] = regionId
 	_params["countryId"] = countryId
 	_params["statusId"] = statusId
@@ -427,13 +427,13 @@ func (s *Service) UpdateOrganization(organizationId int64, parentOrganizationId 
 	return v, err
 }
 
-func (s *Service) UpdateOrganization2(organizationId int64, parentOrganizationId int64, name string, type string, recursable bool, regionId int64, countryId int64, statusId int, comments string, site bool, serviceContext *liferay.ObjectWrapper) (map[string]interface{}, error) {
+func (s *Service) UpdateOrganization2(organizationId int64, parentOrganizationId int64, name string, _type string, recursable bool, regionId int64, countryId int64, statusId int, comments string, site bool, serviceContext *liferay.ObjectWrapper) (map[string]interface{}, error) {
 	_params := make(map[string]interface{})
 
 	_params["organizationId"] = organizationId
 	_params["parentOrganizationId"] = parentOrganizationId
 	_params["name"] = name
-	_params["type"] = type
+	_params["type"] = _type
 	_params["recursable"] = recursable
 	_params["regionId"] = regionId
 	_params["countryId"] = countryId
@@ -457,13 +457,13 @@ func (s *Service) UpdateOrganization2(organizationId int64, parentOrganizationId
 	return v, err
 }
 
-func (s *Service) UpdateOrganization3(organizationId int64, parentOrganizationId int64, name string, type string, regionId int64, countryId int64, statusId int, comments string, site bool, addresses []interface{}, emailAddresses []interface{}, orgLabors []interface{}, phones []interface{}, websites []interface{}, serviceContext *liferay.ObjectWrapper) (map[string]interface{}, error) {
+func (s *Service) UpdateOrganization3(organizationId int64, parentOrganizationId int64, name string, _type string, regionId int64, countryId int64, statusId int, comments string, site bool, addresses []interface{}, emailAddresses []interface{}, orgLabors []interface{}, phones []interface{}, websites []interface{}, serviceContext *liferay.ObjectWrapper) (map[string]interface{}, error) {
 	_params := make(map[string]interface{})
 
 	_params["organizationId"] = organizationId
 	_params["parentOrganizationId"] = parentOrganizationId
 	_params["name"] = name
-	_params["type"] = type
+	_params["type"] = _type
 	_params["regionId"] = regionId
 	_params["countryId"] = countryId
 	_params["statusId"] = statusId
@@ -491,13 +491,13 @@ func (s *Service) UpdateOrganization3(organizationId int64, parentOrganizationId
 	return v, err
 }
 
-func (s *Service) UpdateOrganization4(organizationId int64, parentOrganizationId int64, name string, type string, recursable bool, regionId int64, countryId int64, statusId int, comments string, site bool, addresses []interface{}, emailAddresses []interface{}, orgLabors []interface{}, phones []interface{}, websites []interface{}, serviceContext *liferay.ObjectWrapper) (map[string]interface{}, error) {
+func (s *Service) UpdateOrganization4(organizationId int64, parentOrganizationId int64, name string, _type string, recursable bool, regionId int64, countryId int64, statusId int, comments string, site bool, addresses []interface{}, emailAddresses []interface{}, orgLabors []interface{}, phones []interface{}, websites []interface{}, serviceContext *liferay.ObjectWrapper) (map[string]interface{}, error) {
 	_params := make(map[string]interface{})
 
 	_params["organizationId"] = organizationId
 	_params["parentOrganizationId"] = parentOrganizationId
 	_params["name"] = name
-	_params["type"] = type
+	_params["type"] = _type
 	_params["recursable"] = recursable
 	_params["regionId"] = regionId
 	_params["countryId"] = countryId

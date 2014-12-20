@@ -24,14 +24,14 @@ func NewService(s liferay.Session) *Service {
 	return &Service{s}
 }
 
-func (s *Service) AddGroup(parentGroupId int64, liveGroupId int64, name string, description string, type int, manualMembership bool, membershipRestriction int, friendlyURL string, site bool, active bool, serviceContext *liferay.ObjectWrapper) (map[string]interface{}, error) {
+func (s *Service) AddGroup(parentGroupId int64, liveGroupId int64, name string, description string, _type int, manualMembership bool, membershipRestriction int, friendlyURL string, site bool, active bool, serviceContext *liferay.ObjectWrapper) (map[string]interface{}, error) {
 	_params := make(map[string]interface{})
 
 	_params["parentGroupId"] = parentGroupId
 	_params["liveGroupId"] = liveGroupId
 	_params["name"] = name
 	_params["description"] = description
-	_params["type"] = type
+	_params["type"] = _type
 	_params["manualMembership"] = manualMembership
 	_params["membershipRestriction"] = membershipRestriction
 	_params["friendlyURL"] = friendlyURL
@@ -54,12 +54,12 @@ func (s *Service) AddGroup(parentGroupId int64, liveGroupId int64, name string, 
 	return v, err
 }
 
-func (s *Service) AddGroup2(name string, description string, type int, friendlyURL string, site bool, active bool, serviceContext *liferay.ObjectWrapper) (map[string]interface{}, error) {
+func (s *Service) AddGroup2(name string, description string, _type int, friendlyURL string, site bool, active bool, serviceContext *liferay.ObjectWrapper) (map[string]interface{}, error) {
 	_params := make(map[string]interface{})
 
 	_params["name"] = name
 	_params["description"] = description
-	_params["type"] = type
+	_params["type"] = _type
 	_params["friendlyURL"] = friendlyURL
 	_params["site"] = site
 	_params["active"] = active
@@ -80,13 +80,13 @@ func (s *Service) AddGroup2(name string, description string, type int, friendlyU
 	return v, err
 }
 
-func (s *Service) AddGroup3(parentGroupId int64, name string, description string, type int, friendlyURL string, site bool, active bool, serviceContext *liferay.ObjectWrapper) (map[string]interface{}, error) {
+func (s *Service) AddGroup3(parentGroupId int64, name string, description string, _type int, friendlyURL string, site bool, active bool, serviceContext *liferay.ObjectWrapper) (map[string]interface{}, error) {
 	_params := make(map[string]interface{})
 
 	_params["parentGroupId"] = parentGroupId
 	_params["name"] = name
 	_params["description"] = description
-	_params["type"] = type
+	_params["type"] = _type
 	_params["friendlyURL"] = friendlyURL
 	_params["site"] = site
 	_params["active"] = active
@@ -710,14 +710,14 @@ func (s *Service) UpdateFriendlyUrl(groupId int64, friendlyURL string) (map[stri
 	return v, err
 }
 
-func (s *Service) UpdateGroup(groupId int64, parentGroupId int64, name string, description string, type int, manualMembership bool, membershipRestriction int, friendlyURL string, active bool, serviceContext *liferay.ObjectWrapper) (map[string]interface{}, error) {
+func (s *Service) UpdateGroup(groupId int64, parentGroupId int64, name string, description string, _type int, manualMembership bool, membershipRestriction int, friendlyURL string, active bool, serviceContext *liferay.ObjectWrapper) (map[string]interface{}, error) {
 	_params := make(map[string]interface{})
 
 	_params["groupId"] = groupId
 	_params["parentGroupId"] = parentGroupId
 	_params["name"] = name
 	_params["description"] = description
-	_params["type"] = type
+	_params["type"] = _type
 	_params["manualMembership"] = manualMembership
 	_params["membershipRestriction"] = membershipRestriction
 	_params["friendlyURL"] = friendlyURL

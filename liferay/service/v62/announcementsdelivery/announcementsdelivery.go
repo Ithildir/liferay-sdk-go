@@ -24,11 +24,11 @@ func NewService(s liferay.Session) *Service {
 	return &Service{s}
 }
 
-func (s *Service) UpdateDelivery(userId int64, type string, email bool, sms bool, website bool) (map[string]interface{}, error) {
+func (s *Service) UpdateDelivery(userId int64, _type string, email bool, sms bool, website bool) (map[string]interface{}, error) {
 	_params := make(map[string]interface{})
 
 	_params["userId"] = userId
-	_params["type"] = type
+	_params["type"] = _type
 	_params["email"] = email
 	_params["sms"] = sms
 	_params["website"] = website

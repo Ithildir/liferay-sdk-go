@@ -24,7 +24,7 @@ func NewService(s liferay.Session) *Service {
 	return &Service{s}
 }
 
-func (s *Service) AddEntry(plid int64, classNameId int64, classPK int64, title string, content string, url string, type string, displayDateMonth int, displayDateDay int, displayDateYear int, displayDateHour int, displayDateMinute int, expirationDateMonth int, expirationDateDay int, expirationDateYear int, expirationDateHour int, expirationDateMinute int, priority int, alert bool) (map[string]interface{}, error) {
+func (s *Service) AddEntry(plid int64, classNameId int64, classPK int64, title string, content string, url string, _type string, displayDateMonth int, displayDateDay int, displayDateYear int, displayDateHour int, displayDateMinute int, expirationDateMonth int, expirationDateDay int, expirationDateYear int, expirationDateHour int, expirationDateMinute int, priority int, alert bool) (map[string]interface{}, error) {
 	_params := make(map[string]interface{})
 
 	_params["plid"] = plid
@@ -33,7 +33,7 @@ func (s *Service) AddEntry(plid int64, classNameId int64, classPK int64, title s
 	_params["title"] = title
 	_params["content"] = content
 	_params["url"] = url
-	_params["type"] = type
+	_params["type"] = _type
 	_params["displayDateMonth"] = displayDateMonth
 	_params["displayDateDay"] = displayDateDay
 	_params["displayDateYear"] = displayDateYear
@@ -62,7 +62,7 @@ func (s *Service) AddEntry(plid int64, classNameId int64, classPK int64, title s
 	return v, err
 }
 
-func (s *Service) AddEntry2(plid int64, classNameId int64, classPK int64, title string, content string, url string, type string, displayDateMonth int, displayDateDay int, displayDateYear int, displayDateHour int, displayDateMinute int, displayImmediately bool, expirationDateMonth int, expirationDateDay int, expirationDateYear int, expirationDateHour int, expirationDateMinute int, priority int, alert bool) (map[string]interface{}, error) {
+func (s *Service) AddEntry2(plid int64, classNameId int64, classPK int64, title string, content string, url string, _type string, displayDateMonth int, displayDateDay int, displayDateYear int, displayDateHour int, displayDateMinute int, displayImmediately bool, expirationDateMonth int, expirationDateDay int, expirationDateYear int, expirationDateHour int, expirationDateMinute int, priority int, alert bool) (map[string]interface{}, error) {
 	_params := make(map[string]interface{})
 
 	_params["plid"] = plid
@@ -71,7 +71,7 @@ func (s *Service) AddEntry2(plid int64, classNameId int64, classPK int64, title 
 	_params["title"] = title
 	_params["content"] = content
 	_params["url"] = url
-	_params["type"] = type
+	_params["type"] = _type
 	_params["displayDateMonth"] = displayDateMonth
 	_params["displayDateDay"] = displayDateDay
 	_params["displayDateYear"] = displayDateYear
@@ -135,14 +135,14 @@ func (s *Service) GetEntry(entryId int64) (map[string]interface{}, error) {
 	return v, err
 }
 
-func (s *Service) UpdateEntry(entryId int64, title string, content string, url string, type string, displayDateMonth int, displayDateDay int, displayDateYear int, displayDateHour int, displayDateMinute int, displayImmediately bool, expirationDateMonth int, expirationDateDay int, expirationDateYear int, expirationDateHour int, expirationDateMinute int, priority int) (map[string]interface{}, error) {
+func (s *Service) UpdateEntry(entryId int64, title string, content string, url string, _type string, displayDateMonth int, displayDateDay int, displayDateYear int, displayDateHour int, displayDateMinute int, displayImmediately bool, expirationDateMonth int, expirationDateDay int, expirationDateYear int, expirationDateHour int, expirationDateMinute int, priority int) (map[string]interface{}, error) {
 	_params := make(map[string]interface{})
 
 	_params["entryId"] = entryId
 	_params["title"] = title
 	_params["content"] = content
 	_params["url"] = url
-	_params["type"] = type
+	_params["type"] = _type
 	_params["displayDateMonth"] = displayDateMonth
 	_params["displayDateDay"] = displayDateDay
 	_params["displayDateYear"] = displayDateYear

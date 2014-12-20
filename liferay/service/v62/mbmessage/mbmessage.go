@@ -259,14 +259,14 @@ func (s *Service) GetCategoryMessagesCount(groupId int64, categoryId int64, stat
 	return v, err
 }
 
-func (s *Service) GetCategoryMessagesRss(groupId int64, categoryId int64, status int, max int, type string, version float64, displayStyle string, feedURL string, entryURL string, themeDisplay *liferay.ObjectWrapper) (string, error) {
+func (s *Service) GetCategoryMessagesRss(groupId int64, categoryId int64, status int, max int, _type string, version float64, displayStyle string, feedURL string, entryURL string, themeDisplay *liferay.ObjectWrapper) (string, error) {
 	_params := make(map[string]interface{})
 
 	_params["groupId"] = groupId
 	_params["categoryId"] = categoryId
 	_params["status"] = status
 	_params["max"] = max
-	_params["type"] = type
+	_params["type"] = _type
 	_params["version"] = version
 	_params["displayStyle"] = displayStyle
 	_params["feedURL"] = feedURL
@@ -288,13 +288,13 @@ func (s *Service) GetCategoryMessagesRss(groupId int64, categoryId int64, status
 	return v, err
 }
 
-func (s *Service) GetCompanyMessagesRss(companyId int64, status int, max int, type string, version float64, displayStyle string, feedURL string, entryURL string, themeDisplay *liferay.ObjectWrapper) (string, error) {
+func (s *Service) GetCompanyMessagesRss(companyId int64, status int, max int, _type string, version float64, displayStyle string, feedURL string, entryURL string, themeDisplay *liferay.ObjectWrapper) (string, error) {
 	_params := make(map[string]interface{})
 
 	_params["companyId"] = companyId
 	_params["status"] = status
 	_params["max"] = max
-	_params["type"] = type
+	_params["type"] = _type
 	_params["version"] = version
 	_params["displayStyle"] = displayStyle
 	_params["feedURL"] = feedURL
@@ -337,14 +337,14 @@ func (s *Service) GetGroupMessagesCount(groupId int64, status int) (int, error) 
 	return v, err
 }
 
-func (s *Service) GetGroupMessagesRss(groupId int64, userId int64, status int, max int, type string, version float64, displayStyle string, feedURL string, entryURL string, themeDisplay *liferay.ObjectWrapper) (string, error) {
+func (s *Service) GetGroupMessagesRss(groupId int64, userId int64, status int, max int, _type string, version float64, displayStyle string, feedURL string, entryURL string, themeDisplay *liferay.ObjectWrapper) (string, error) {
 	_params := make(map[string]interface{})
 
 	_params["groupId"] = groupId
 	_params["userId"] = userId
 	_params["status"] = status
 	_params["max"] = max
-	_params["type"] = type
+	_params["type"] = _type
 	_params["version"] = version
 	_params["displayStyle"] = displayStyle
 	_params["feedURL"] = feedURL
@@ -366,13 +366,13 @@ func (s *Service) GetGroupMessagesRss(groupId int64, userId int64, status int, m
 	return v, err
 }
 
-func (s *Service) GetGroupMessagesRss2(groupId int64, status int, max int, type string, version float64, displayStyle string, feedURL string, entryURL string, themeDisplay *liferay.ObjectWrapper) (string, error) {
+func (s *Service) GetGroupMessagesRss2(groupId int64, status int, max int, _type string, version float64, displayStyle string, feedURL string, entryURL string, themeDisplay *liferay.ObjectWrapper) (string, error) {
 	_params := make(map[string]interface{})
 
 	_params["groupId"] = groupId
 	_params["status"] = status
 	_params["max"] = max
-	_params["type"] = type
+	_params["type"] = _type
 	_params["version"] = version
 	_params["displayStyle"] = displayStyle
 	_params["feedURL"] = feedURL
@@ -507,13 +507,13 @@ func (s *Service) GetThreadMessagesCount(groupId int64, categoryId int64, thread
 	return v, err
 }
 
-func (s *Service) GetThreadMessagesRss(threadId int64, status int, max int, type string, version float64, displayStyle string, feedURL string, entryURL string, themeDisplay *liferay.ObjectWrapper) (string, error) {
+func (s *Service) GetThreadMessagesRss(threadId int64, status int, max int, _type string, version float64, displayStyle string, feedURL string, entryURL string, themeDisplay *liferay.ObjectWrapper) (string, error) {
 	_params := make(map[string]interface{})
 
 	_params["threadId"] = threadId
 	_params["status"] = status
 	_params["max"] = max
-	_params["type"] = type
+	_params["type"] = _type
 	_params["version"] = version
 	_params["displayStyle"] = displayStyle
 	_params["feedURL"] = feedURL

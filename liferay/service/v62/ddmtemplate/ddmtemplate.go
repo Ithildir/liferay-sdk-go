@@ -13,6 +13,8 @@
 package ddmtemplate
 
 import (
+	"io"
+
 	"github.com/ithildir/liferay-sdk-go/liferay"
 )
 
@@ -24,7 +26,7 @@ func NewService(s liferay.Session) *Service {
 	return &Service{s}
 }
 
-func (s *Service) AddTemplate(groupId int64, classNameId int64, classPK int64, nameMap map[string]interface{}, descriptionMap map[string]interface{}, type string, mode string, language string, script string, serviceContext *liferay.ObjectWrapper) (map[string]interface{}, error) {
+func (s *Service) AddTemplate(groupId int64, classNameId int64, classPK int64, nameMap map[string]interface{}, descriptionMap map[string]interface{}, _type string, mode string, language string, script string, serviceContext *liferay.ObjectWrapper) (map[string]interface{}, error) {
 	_params := make(map[string]interface{})
 
 	_params["groupId"] = groupId
@@ -32,7 +34,7 @@ func (s *Service) AddTemplate(groupId int64, classNameId int64, classPK int64, n
 	_params["classPK"] = classPK
 	_params["nameMap"] = nameMap
 	_params["descriptionMap"] = descriptionMap
-	_params["type"] = type
+	_params["type"] = _type
 	_params["mode"] = mode
 	_params["language"] = language
 	_params["script"] = script
@@ -53,7 +55,7 @@ func (s *Service) AddTemplate(groupId int64, classNameId int64, classPK int64, n
 	return v, err
 }
 
-func (s *Service) AddTemplate2(groupId int64, classNameId int64, classPK int64, templateKey string, nameMap map[string]interface{}, descriptionMap map[string]interface{}, type string, mode string, language string, script string, cacheable bool, smallImage bool, smallImageURL string, smallImageFile io.Reader, serviceContext *liferay.ObjectWrapper) (map[string]interface{}, error) {
+func (s *Service) AddTemplate2(groupId int64, classNameId int64, classPK int64, templateKey string, nameMap map[string]interface{}, descriptionMap map[string]interface{}, _type string, mode string, language string, script string, cacheable bool, smallImage bool, smallImageURL string, smallImageFile io.Reader, serviceContext *liferay.ObjectWrapper) (map[string]interface{}, error) {
 	_params := make(map[string]interface{})
 
 	_params["groupId"] = groupId
@@ -62,7 +64,7 @@ func (s *Service) AddTemplate2(groupId int64, classNameId int64, classPK int64, 
 	_params["templateKey"] = templateKey
 	_params["nameMap"] = nameMap
 	_params["descriptionMap"] = descriptionMap
-	_params["type"] = type
+	_params["type"] = _type
 	_params["mode"] = mode
 	_params["language"] = language
 	_params["script"] = script
@@ -131,13 +133,13 @@ func (s *Service) CopyTemplate2(templateId int64, nameMap map[string]interface{}
 	return v, err
 }
 
-func (s *Service) CopyTemplates(classNameId int64, classPK int64, newClassPK int64, type string, serviceContext *liferay.ObjectWrapper) ([]interface{}, error) {
+func (s *Service) CopyTemplates(classNameId int64, classPK int64, newClassPK int64, _type string, serviceContext *liferay.ObjectWrapper) ([]interface{}, error) {
 	_params := make(map[string]interface{})
 
 	_params["classNameId"] = classNameId
 	_params["classPK"] = classPK
 	_params["newClassPK"] = newClassPK
-	_params["type"] = type
+	_params["type"] = _type
 	liferay.MangleObjectWrapper(_params, "serviceContext", "com.liferay.portal.service.ServiceContext", serviceContext)
 
 	_cmd := map[string]interface{}{
@@ -299,13 +301,13 @@ func (s *Service) GetTemplates2(groupId int64, classNameId int64, classPK int64)
 	return v, err
 }
 
-func (s *Service) GetTemplates3(groupId int64, classNameId int64, classPK int64, type string) ([]interface{}, error) {
+func (s *Service) GetTemplates3(groupId int64, classNameId int64, classPK int64, _type string) ([]interface{}, error) {
 	_params := make(map[string]interface{})
 
 	_params["groupId"] = groupId
 	_params["classNameId"] = classNameId
 	_params["classPK"] = classPK
-	_params["type"] = type
+	_params["type"] = _type
 
 	_cmd := map[string]interface{}{
 		"/ddmtemplate/get-templates": _params,
@@ -322,13 +324,13 @@ func (s *Service) GetTemplates3(groupId int64, classNameId int64, classPK int64,
 	return v, err
 }
 
-func (s *Service) GetTemplates4(groupId int64, classNameId int64, classPK int64, type string, mode string) ([]interface{}, error) {
+func (s *Service) GetTemplates4(groupId int64, classNameId int64, classPK int64, _type string, mode string) ([]interface{}, error) {
 	_params := make(map[string]interface{})
 
 	_params["groupId"] = groupId
 	_params["classNameId"] = classNameId
 	_params["classPK"] = classPK
-	_params["type"] = type
+	_params["type"] = _type
 	_params["mode"] = mode
 
 	_cmd := map[string]interface{}{
@@ -412,7 +414,7 @@ func (s *Service) GetTemplatesByStructureClassNameIdCount(groupId int64, structu
 	return v, err
 }
 
-func (s *Service) Search(companyId int64, groupId int64, classNameId int64, classPK int64, keywords string, type string, mode string, start int, end int, orderByComparator *liferay.ObjectWrapper) ([]interface{}, error) {
+func (s *Service) Search(companyId int64, groupId int64, classNameId int64, classPK int64, keywords string, _type string, mode string, start int, end int, orderByComparator *liferay.ObjectWrapper) ([]interface{}, error) {
 	_params := make(map[string]interface{})
 
 	_params["companyId"] = companyId
@@ -420,7 +422,7 @@ func (s *Service) Search(companyId int64, groupId int64, classNameId int64, clas
 	_params["classNameId"] = classNameId
 	_params["classPK"] = classPK
 	_params["keywords"] = keywords
-	_params["type"] = type
+	_params["type"] = _type
 	_params["mode"] = mode
 	_params["start"] = start
 	_params["end"] = end
@@ -441,7 +443,7 @@ func (s *Service) Search(companyId int64, groupId int64, classNameId int64, clas
 	return v, err
 }
 
-func (s *Service) Search2(companyId int64, groupIds []interface{}, classNameIds []interface{}, classPKs []interface{}, keywords string, type string, mode string, start int, end int, orderByComparator *liferay.ObjectWrapper) ([]interface{}, error) {
+func (s *Service) Search2(companyId int64, groupIds []interface{}, classNameIds []interface{}, classPKs []interface{}, keywords string, _type string, mode string, start int, end int, orderByComparator *liferay.ObjectWrapper) ([]interface{}, error) {
 	_params := make(map[string]interface{})
 
 	_params["companyId"] = companyId
@@ -449,7 +451,7 @@ func (s *Service) Search2(companyId int64, groupIds []interface{}, classNameIds 
 	_params["classNameIds"] = classNameIds
 	_params["classPKs"] = classPKs
 	_params["keywords"] = keywords
-	_params["type"] = type
+	_params["type"] = _type
 	_params["mode"] = mode
 	_params["start"] = start
 	_params["end"] = end
@@ -470,7 +472,7 @@ func (s *Service) Search2(companyId int64, groupIds []interface{}, classNameIds 
 	return v, err
 }
 
-func (s *Service) Search3(companyId int64, groupId int64, classNameId int64, classPK int64, name string, description string, type string, mode string, language string, andOperator bool, start int, end int, orderByComparator *liferay.ObjectWrapper) ([]interface{}, error) {
+func (s *Service) Search3(companyId int64, groupId int64, classNameId int64, classPK int64, name string, description string, _type string, mode string, language string, andOperator bool, start int, end int, orderByComparator *liferay.ObjectWrapper) ([]interface{}, error) {
 	_params := make(map[string]interface{})
 
 	_params["companyId"] = companyId
@@ -479,7 +481,7 @@ func (s *Service) Search3(companyId int64, groupId int64, classNameId int64, cla
 	_params["classPK"] = classPK
 	_params["name"] = name
 	_params["description"] = description
-	_params["type"] = type
+	_params["type"] = _type
 	_params["mode"] = mode
 	_params["language"] = language
 	_params["andOperator"] = andOperator
@@ -502,7 +504,7 @@ func (s *Service) Search3(companyId int64, groupId int64, classNameId int64, cla
 	return v, err
 }
 
-func (s *Service) Search4(companyId int64, groupIds []interface{}, classNameIds []interface{}, classPKs []interface{}, name string, description string, type string, mode string, language string, andOperator bool, start int, end int, orderByComparator *liferay.ObjectWrapper) ([]interface{}, error) {
+func (s *Service) Search4(companyId int64, groupIds []interface{}, classNameIds []interface{}, classPKs []interface{}, name string, description string, _type string, mode string, language string, andOperator bool, start int, end int, orderByComparator *liferay.ObjectWrapper) ([]interface{}, error) {
 	_params := make(map[string]interface{})
 
 	_params["companyId"] = companyId
@@ -511,7 +513,7 @@ func (s *Service) Search4(companyId int64, groupIds []interface{}, classNameIds 
 	_params["classPKs"] = classPKs
 	_params["name"] = name
 	_params["description"] = description
-	_params["type"] = type
+	_params["type"] = _type
 	_params["mode"] = mode
 	_params["language"] = language
 	_params["andOperator"] = andOperator
@@ -534,7 +536,7 @@ func (s *Service) Search4(companyId int64, groupIds []interface{}, classNameIds 
 	return v, err
 }
 
-func (s *Service) SearchCount(companyId int64, groupId int64, classNameId int64, classPK int64, name string, description string, type string, mode string, language string, andOperator bool) (int, error) {
+func (s *Service) SearchCount(companyId int64, groupId int64, classNameId int64, classPK int64, name string, description string, _type string, mode string, language string, andOperator bool) (int, error) {
 	_params := make(map[string]interface{})
 
 	_params["companyId"] = companyId
@@ -543,7 +545,7 @@ func (s *Service) SearchCount(companyId int64, groupId int64, classNameId int64,
 	_params["classPK"] = classPK
 	_params["name"] = name
 	_params["description"] = description
-	_params["type"] = type
+	_params["type"] = _type
 	_params["mode"] = mode
 	_params["language"] = language
 	_params["andOperator"] = andOperator
@@ -563,7 +565,7 @@ func (s *Service) SearchCount(companyId int64, groupId int64, classNameId int64,
 	return v, err
 }
 
-func (s *Service) SearchCount2(companyId int64, groupIds []interface{}, classNameIds []interface{}, classPKs []interface{}, name string, description string, type string, mode string, language string, andOperator bool) (int, error) {
+func (s *Service) SearchCount2(companyId int64, groupIds []interface{}, classNameIds []interface{}, classPKs []interface{}, name string, description string, _type string, mode string, language string, andOperator bool) (int, error) {
 	_params := make(map[string]interface{})
 
 	_params["companyId"] = companyId
@@ -572,7 +574,7 @@ func (s *Service) SearchCount2(companyId int64, groupIds []interface{}, classNam
 	_params["classPKs"] = classPKs
 	_params["name"] = name
 	_params["description"] = description
-	_params["type"] = type
+	_params["type"] = _type
 	_params["mode"] = mode
 	_params["language"] = language
 	_params["andOperator"] = andOperator
@@ -592,7 +594,7 @@ func (s *Service) SearchCount2(companyId int64, groupIds []interface{}, classNam
 	return v, err
 }
 
-func (s *Service) SearchCount3(companyId int64, groupId int64, classNameId int64, classPK int64, keywords string, type string, mode string) (int, error) {
+func (s *Service) SearchCount3(companyId int64, groupId int64, classNameId int64, classPK int64, keywords string, _type string, mode string) (int, error) {
 	_params := make(map[string]interface{})
 
 	_params["companyId"] = companyId
@@ -600,7 +602,7 @@ func (s *Service) SearchCount3(companyId int64, groupId int64, classNameId int64
 	_params["classNameId"] = classNameId
 	_params["classPK"] = classPK
 	_params["keywords"] = keywords
-	_params["type"] = type
+	_params["type"] = _type
 	_params["mode"] = mode
 
 	_cmd := map[string]interface{}{
@@ -618,7 +620,7 @@ func (s *Service) SearchCount3(companyId int64, groupId int64, classNameId int64
 	return v, err
 }
 
-func (s *Service) SearchCount4(companyId int64, groupIds []interface{}, classNameIds []interface{}, classPKs []interface{}, keywords string, type string, mode string) (int, error) {
+func (s *Service) SearchCount4(companyId int64, groupIds []interface{}, classNameIds []interface{}, classPKs []interface{}, keywords string, _type string, mode string) (int, error) {
 	_params := make(map[string]interface{})
 
 	_params["companyId"] = companyId
@@ -626,7 +628,7 @@ func (s *Service) SearchCount4(companyId int64, groupIds []interface{}, classNam
 	_params["classNameIds"] = classNameIds
 	_params["classPKs"] = classPKs
 	_params["keywords"] = keywords
-	_params["type"] = type
+	_params["type"] = _type
 	_params["mode"] = mode
 
 	_cmd := map[string]interface{}{
@@ -644,14 +646,14 @@ func (s *Service) SearchCount4(companyId int64, groupIds []interface{}, classNam
 	return v, err
 }
 
-func (s *Service) UpdateTemplate(templateId int64, classPK int64, nameMap map[string]interface{}, descriptionMap map[string]interface{}, type string, mode string, language string, script string, cacheable bool, smallImage bool, smallImageURL string, smallImageFile io.Reader, serviceContext *liferay.ObjectWrapper) (map[string]interface{}, error) {
+func (s *Service) UpdateTemplate(templateId int64, classPK int64, nameMap map[string]interface{}, descriptionMap map[string]interface{}, _type string, mode string, language string, script string, cacheable bool, smallImage bool, smallImageURL string, smallImageFile io.Reader, serviceContext *liferay.ObjectWrapper) (map[string]interface{}, error) {
 	_params := make(map[string]interface{})
 
 	_params["templateId"] = templateId
 	_params["classPK"] = classPK
 	_params["nameMap"] = nameMap
 	_params["descriptionMap"] = descriptionMap
-	_params["type"] = type
+	_params["type"] = _type
 	_params["mode"] = mode
 	_params["language"] = language
 	_params["script"] = script
