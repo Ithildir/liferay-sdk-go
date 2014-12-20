@@ -3,8 +3,8 @@ package tests
 import (
 	"testing"
 
-	"bitbucket.org/ithildir/liferay-sdk-go/liferay"
-	"bitbucket.org/ithildir/liferay-sdk-go/liferay/service/v62/group"
+	"github.com/ithildir/liferay-sdk-go/liferay"
+	"github.com/ithildir/liferay-sdk-go/liferay/service/v62/group"
 )
 
 func TestUnauthenticatedService(t *testing.T) {

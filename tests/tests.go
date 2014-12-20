@@ -1,6 +1,6 @@
 package tests
 
-import "bitbucket.org/ithildir/liferay-sdk-go/liferay"
+import "github.com/ithildir/liferay-sdk-go/liferay"
 
 const (
 	groupId  int64  = 10184

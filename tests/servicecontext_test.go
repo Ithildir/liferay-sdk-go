@@ -5,8 +5,8 @@ import (
 	"strconv"
 	"testing"
 
-	"bitbucket.org/ithildir/liferay-sdk-go/liferay"
-	"bitbucket.org/ithildir/liferay-sdk-go/liferay/service/v62/bookmarksentry"
+	"github.com/ithildir/liferay-sdk-go/liferay"
+	"github.com/ithildir/liferay-sdk-go/liferay/service/v62/bookmarksentry"
 )
 
 func TestAddBookmarksEntry(t *testing.T) {

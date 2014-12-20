@@ -3,7 +3,7 @@ package tests
 import (
 	"testing"
 
-	"bitbucket.org/ithildir/liferay-sdk-go/liferay"
+	"github.com/ithildir/liferay-sdk-go/liferay"
 )
 
 func TestPortalVersion(t *testing.T) {
