@@ -15,19 +15,19 @@ func TestGetEntriesDescending(t *testing.T) {
 			ClassName: "com.liferay.portlet.bookmarks.util.comparator.EntryNameComparator",
 		}
 
-		entries, err := service.GetEntries2(groupId, parentFolderId, -1, -1, orderByComparator)
+		a, err := service.GetEntries2(groupId, parentFolderId, -1, -1, orderByComparator)
 
 		if err != nil {
 			t.Fatalf("GetEntries returned error: %v", err)
 		}
 
-		first := entries[0].(map[string]interface{})
+		first := a[0].(map[string]interface{})
 
 		if first["name"] != "Z" {
 			t.Fatalf("first has name %v, want Z", first["name"])
 		}
 
-		second := entries[1].(map[string]interface{})
+		second := a[1].(map[string]interface{})
 
 		if second["name"] != "A" {
 			t.Fatalf("second has name %v, want A", second["name"])
@@ -41,23 +41,23 @@ func TestNullOrderByComparator(t *testing.T) {
 	f := func() {
 		service := bookmarksentry.NewService(session)
 
-		entries, err := service.GetEntries2(groupId, parentFolderId, -1, -1, nil)
+		a, err := service.GetEntries2(groupId, parentFolderId, -1, -1, nil)
 
 		if err != nil {
 			t.Fatalf("GetEntries returned error: %v", err)
 		}
 
-		if len(entries) != 2 {
-			t.Fatalf("GetEntries returned %d elements, want 2", len(entries))
+		if len(a) != 2 {
+			t.Fatalf("GetEntries returned %d elements, want 2", len(a))
 		}
 
-		first := entries[0].(map[string]interface{})
+		first := a[0].(map[string]interface{})
 
 		if first["name"] != "A" {
 			t.Fatalf("first has name %v, want A", first["name"])
 		}
 
-		second := entries[1].(map[string]interface{})
+		second := a[1].(map[string]interface{})
 
 		if second["name"] != "Z" {
 			t.Fatalf("second has name %v, want Z", second["name"])
