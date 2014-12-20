@@ -201,11 +201,14 @@ public class GoSDKBuilder extends BaseBuilder {
 		context.put(JSON_OBJECT_WRAPPER, GoUtil.JSON_OBJECT_WRAPPER);
 		context.put(LANGUAGE_UTIL, goUtil);
 		context.put(PACKAGE, filter);
+		context.put(RESPONSE_VARIABLE, GoUtil.RESPONSE_VARIABLE);
 		context.put(VOID, GoUtil.VOID);
 
 		return context;
 	}
 
 	protected static final String PACKAGE = "package";
+
+	protected static final String RESPONSE_VARIABLE = "RESPONSE_VARIABLE";
 
 }

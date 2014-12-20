@@ -1,5 +1,7 @@
-#macro(goMethodSignature $action)
-	#set ($methodName = $languageUtil.getMethodName($action.path))
+#macro(goMethodSignature $index)
+	#set ($action = $actions[$index])
+
+	#set ($methodName = $languageUtil.getMethodName($actions, $index))
 	#set ($parameters = $action.parameters)
 	#set ($parameterList = "")
 
@@ -63,8 +65,9 @@ func NewService(s liferay.Session) *Service {
 #foreach ($action in $actions)
 	#set ($parameters = $action.parameters)
 	#set ($returnType = $languageUtil.getReturnType($action.response))
+	#set ($responseVariableConversion = $languageUtil.getResponseVariableConversion($returnType))
 
-	#goMethodSignature($action)
+	#goMethodSignature($foreach.index)
 
 	##t	_params := make(map[string]interface{})
 
@@ -104,12 +107,12 @@ func NewService(s liferay.Session) *Service {
 
 		##n
 
-		##t	res, err := s.session.$invokeMethod(_cmd)
+		##t	$RESPONSE_VARIABLE, err := s.session.$invokeMethod(_cmd)
 
 		##n
 
-		##t	if err == nil && res != nil {
-		##t		v = TODO
+		##t	if err == nil && $RESPONSE_VARIABLE != nil {
+		##t		v = $responseVariableConversion
 		##t	}
 
 		##n

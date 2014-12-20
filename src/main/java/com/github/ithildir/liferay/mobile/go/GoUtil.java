@@ -14,7 +14,11 @@
 
 package com.github.ithildir.liferay.mobile.go;
 
+import com.liferay.mobile.sdk.http.Action;
+import com.liferay.mobile.sdk.util.CharPool;
 import com.liferay.mobile.sdk.util.LanguageUtil;
+
+import java.util.List;
 
 /**
  * @author Andrea Di Giorgi
@@ -37,9 +41,12 @@ public class GoUtil extends LanguageUtil {
 
 	public static final String JSON_OBJECT_WRAPPER = "*liferay.ObjectWrapper";
 
-	@Override
-	public String getMethodName(String path) {
-		String last = getMethodURL(path);
+	public static final String RESPONSE_VARIABLE = "res";
+
+	public String getMethodName(List<Action> actions, int index) {
+		Action action = actions.get(index);
+
+		String last = getMethodURL(action.getPath());
 
 		String[] methodName = last.split("-");
 
@@ -51,7 +58,29 @@ public class GoUtil extends LanguageUtil {
 			sb.append(word);
 		}
 
+		int methodOverloadIndex = getMethodOverloadIndex(actions, index);
+
+		if (methodOverloadIndex > 0) {
+			sb.append(methodOverloadIndex);
+		}
+
 		return sb.toString();
+	}
+
+	public String getResponseVariableConversion(String returnType) {
+		if (returnType.equals(INT) || returnType.equals(INT64)) {
+			StringBuilder sb = new StringBuilder();
+
+			sb.append(returnType);
+			sb.append(CharPool.OPEN_PARENTHESIS);
+			sb.append(RESPONSE_VARIABLE);
+			sb.append(".(float64)");
+
+			return sb.toString();
+		}
+
+		return
+			RESPONSE_VARIABLE + ".(" + returnType + CharPool.CLOSE_PARENTHESIS;
 	}
 
 	public String getReturnType(String type) {
@@ -106,6 +135,30 @@ public class GoUtil extends LanguageUtil {
 		}
 
 		return JSON_OBJECT;
+	}
+
+	protected int getMethodOverloadIndex(List<Action> actions, int index) {
+		Action action = actions.get(index);
+
+		String path = action.getPath();
+
+		int overloadIndex = 0;
+
+		for (int i = index - 1; i >= 0; i--) {
+			Action curAction = actions.get(i);
+
+			if (!path.equals(curAction.getPath())) {
+				break;
+			}
+
+			overloadIndex++;
+		}
+
+		if (overloadIndex > 0) {
+			overloadIndex++;
+		}
+
+		return overloadIndex;
 	}
 
 }
