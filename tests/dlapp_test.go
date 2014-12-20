@@ -10,8 +10,30 @@ import (
 const (
 	folderName     string = "test"
 	folderName2    string = "test2"
+	mimeType       string = "text/plain"
 	parentFolderId int64  = 0
+	sourceFileName string = "test.properties"
 )
+
+func TestAddFileEntryBytes(t *testing.T) {
+	service := dlapp.NewService(session)
+
+	b := []byte("Hello")
+
+	entry, err := service.AddFileEntry(groupId, parentFolderId, sourceFileName, mimeType, sourceFileName, "", "", b, nil)
+
+	if err != nil {
+		t.Fatalf("AddFileEntry returned error: %v", err)
+	}
+
+	if entry["title"] != sourceFileName {
+		t.Fatalf("entry has title %v, want %v", entry["title"], sourceFileName)
+	}
+
+	if err := service.DeleteFileEntry(int64(entry["fileEntryId"].(float64))); err != nil {
+		t.Fatalf("DeleteFileEntry returned error: %v", err)
+	}
+}
 
 func TestAddFoldersBatch(t *testing.T) {
 	batch := liferay.NewBatchSession(server, username, password)
@@ -21,19 +43,19 @@ func TestAddFoldersBatch(t *testing.T) {
 	service.AddFolder(groupId, parentFolderId, folderName, "", nil)
 	service.AddFolder(groupId, parentFolderId, folderName2, "", nil)
 
-	array, err := batch.InvokeAll()
+	a, err := batch.InvokeAll()
 
 	if err != nil {
 		t.Fatalf("InvokeAll returned error: %v", err)
 	}
 
-	folder1 := array[0].(map[string]interface{})
+	folder1 := a[0].(map[string]interface{})
 
 	if folder1["name"] != folderName {
 		t.Fatalf("folder1 has name %v, want %v", folder1["name"], folderName)
 	}
 
-	folder2 := array[1].(map[string]interface{})
+	folder2 := a[1].(map[string]interface{})
 
 	if folder2["name"] != folderName2 {
 		t.Fatalf("folder2 has name %v, want %v", folder1["name"], folderName2)
