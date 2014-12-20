@@ -80,7 +80,7 @@ func (s *Service) UpdateStagingRequest(stagingRequestId int64, fileName string, 
 
 	_params["stagingRequestId"] = stagingRequestId
 	_params["fileName"] = fileName
-	_params["bytes"] = bytes
+	_params["bytes"] = liferay.ToJSONString(bytes)
 
 	_cmd := map[string]interface{}{
 		"/staging/update-staging-request": _params,

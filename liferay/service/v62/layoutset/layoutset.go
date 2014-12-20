@@ -49,7 +49,7 @@ func (s *Service) UpdateLogo(groupId int64, privateLayout bool, logo bool, bytes
 	_params["groupId"] = groupId
 	_params["privateLayout"] = privateLayout
 	_params["logo"] = logo
-	_params["bytes"] = bytes
+	_params["bytes"] = liferay.ToJSONString(bytes)
 
 	_cmd := map[string]interface{}{
 		"/layoutset/update-logo": _params,

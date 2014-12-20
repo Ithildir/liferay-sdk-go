@@ -214,7 +214,7 @@ func (s *Service) UpdateLogo(companyId int64, bytes []byte) (map[string]interfac
 	_params := make(map[string]interface{})
 
 	_params["companyId"] = companyId
-	_params["bytes"] = bytes
+	_params["bytes"] = liferay.ToJSONString(bytes)
 
 	_cmd := map[string]interface{}{
 		"/company/update-logo": _params,

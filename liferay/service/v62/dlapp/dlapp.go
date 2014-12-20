@@ -36,7 +36,7 @@ func (s *Service) AddFileEntry(repositoryId int64, folderId int64, sourceFileNam
 	_params["title"] = title
 	_params["description"] = description
 	_params["changeLog"] = changeLog
-	_params["bytes"] = bytes
+	_params["bytes"] = liferay.ToJSONString(bytes)
 	liferay.MangleObjectWrapper(_params, "serviceContext", "com.liferay.portal.service.ServiceContext", serviceContext)
 
 	_cmd := map[string]interface{}{
@@ -2105,7 +2105,7 @@ func (s *Service) UpdateFileEntry(fileEntryId int64, sourceFileName string, mime
 	_params["description"] = description
 	_params["changeLog"] = changeLog
 	_params["majorVersion"] = majorVersion
-	_params["bytes"] = bytes
+	_params["bytes"] = liferay.ToJSONString(bytes)
 	liferay.MangleObjectWrapper(_params, "serviceContext", "com.liferay.portal.service.ServiceContext", serviceContext)
 
 	_cmd := map[string]interface{}{

@@ -644,7 +644,7 @@ func (s *Service) ImportLayouts(groupId int64, privateLayout bool, parameterMap 
 	_params["groupId"] = groupId
 	_params["privateLayout"] = privateLayout
 	_params["parameterMap"] = parameterMap
-	_params["bytes"] = bytes
+	_params["bytes"] = liferay.ToJSONString(bytes)
 
 	_cmd := map[string]interface{}{
 		"/layout/import-layouts": _params,
@@ -894,7 +894,7 @@ func (s *Service) UpdateLayout(groupId int64, privateLayout bool, layoutId int64
 	_params["hidden"] = hidden
 	_params["friendlyURL"] = friendlyURL
 	liferay.MangleObjectWrapper(_params, "iconImage", "java.lang.Boolean", iconImage)
-	_params["iconBytes"] = iconBytes
+	_params["iconBytes"] = liferay.ToJSONString(iconBytes)
 	liferay.MangleObjectWrapper(_params, "serviceContext", "com.liferay.portal.service.ServiceContext", serviceContext)
 
 	_cmd := map[string]interface{}{
@@ -928,7 +928,7 @@ func (s *Service) UpdateLayout2(groupId int64, privateLayout bool, layoutId int6
 	_params["hidden"] = hidden
 	_params["friendlyURLMap"] = friendlyURLMap
 	liferay.MangleObjectWrapper(_params, "iconImage", "java.lang.Boolean", iconImage)
-	_params["iconBytes"] = iconBytes
+	_params["iconBytes"] = liferay.ToJSONString(iconBytes)
 	liferay.MangleObjectWrapper(_params, "serviceContext", "com.liferay.portal.service.ServiceContext", serviceContext)
 
 	_cmd := map[string]interface{}{

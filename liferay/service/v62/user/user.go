@@ -987,7 +987,7 @@ func (s *Service) UpdatePortrait(userId int64, bytes []byte) (map[string]interfa
 	_params := make(map[string]interface{})
 
 	_params["userId"] = userId
-	_params["bytes"] = bytes
+	_params["bytes"] = liferay.ToJSONString(bytes)
 
 	_cmd := map[string]interface{}{
 		"/user/update-portrait": _params,
