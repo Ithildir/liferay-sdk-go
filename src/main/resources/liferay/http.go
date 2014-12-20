@@ -5,8 +5,6 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"io/ioutil"
-	"mime/multipart"
 	"net/http"
 	"strings"
 )
@@ -21,6 +19,34 @@ func (e ServerError) Error() string {
 
 const jsonwsPath string = "api/jsonws"
 
+func doRequest(s Session, req *http.Request) (interface{}, error) {
+	s.SetAuth(req)
+
+	client := s.Client()
+
+	res, err := client.Do(req)
+
+	if err != nil {
+		return nil, err
+	}
+
+	defer res.Body.Close()
+
+	dec := json.NewDecoder(res.Body)
+
+	var v interface{}
+
+	if err := dec.Decode(&v); err != nil {
+		return nil, err
+	}
+
+	if err := handleServerException(res, v); err != nil {
+		return nil, err
+	}
+
+	return v, nil
+}
+
 func getPath(cmd map[string]interface{}) string {
 	for k, _ := range cmd {
 		return k
@@ -29,8 +55,8 @@ func getPath(cmd map[string]interface{}) string {
 	return ""
 }
 
-func getURL(session Session, path string) string {
-	url := session.Server()
+func getURL(s Session, path string) string {
+	url := s.Server()
 
 	if !strings.HasSuffix(url, "/") {
 		url += "/"
@@ -42,7 +68,7 @@ func getURL(session Session, path string) string {
 	return url
 }
 
-func handleServerException(res *http.Response, b []byte) error {
+func handleServerException(res *http.Response, v interface{}) error {
 	c := res.StatusCode
 
 	if c == http.StatusUnauthorized {
@@ -53,10 +79,10 @@ func handleServerException(res *http.Response, b []byte) error {
 		return ServerError(c)
 	}
 
-	var o map[string]interface{}
+	m, ok := v.(map[string]interface{})
 
-	if err := json.Unmarshal(b, &o); err == nil {
-		msg, ok := o["exception"]
+	if ok {
+		msg, ok := m["exception"]
 
 		if ok {
 			return errors.New(msg.(string))
@@ -66,14 +92,14 @@ func handleServerException(res *http.Response, b []byte) error {
 	return nil
 }
 
-func post(session Session, cmds []map[string]interface{}) ([]interface{}, error) {
+func post(s Session, cmds []map[string]interface{}) ([]interface{}, error) {
 	b, err := json.Marshal(cmds)
 
 	if err != nil {
 		return nil, err
 	}
 
-	url := getURL(session, "/invoke")
+	url := getURL(s, "/invoke")
 
 	req, err := http.NewRequest("POST", url, bytes.NewReader(b))
 
@@ -81,82 +107,15 @@ func post(session Session, cmds []map[string]interface{}) ([]interface{}, error)
 		return nil, err
 	}
 
-	session.SetAuth(req)
-
-	client := session.Client()
-
-	res, err := client.Do(req)
+	v, err := doRequest(s, req)
 
 	if err != nil {
 		return nil, err
 	}
 
-	defer res.Body.Close()
-
-	b, err = ioutil.ReadAll(res.Body)
-
-	if err != nil {
-		return nil, err
-	}
-
-	if err := handleServerException(res, b); err != nil {
-		return nil, err
-	}
-
-	var a []interface{}
-
-	if err := json.Unmarshal(b, &a); err != nil {
-		return nil, err
-	}
-
-	return a, nil
+	return v.([]interface{}), nil
 }
 
-func upload(session Session, cmd map[string]interface{}) (map[string]interface{}, error) {
-	path := getPath(cmd)
-	params := cmd[path].(map[string]interface{})
-
-	var body bytes.Buffer
-
-	w := multipart.NewWriter(&body)
-
-	w.Close()
-
-	url := getURL(session, path)
-
-	req, err := http.NewRequest("POST", url, &body)
-
-	if err != nil {
-		return nil, err
-	}
-
-	session.SetAuth(req)
-
-	client := session.Client()
-
-	res, err := client.Do(req)
-
-	if err != nil {
-		return nil, err
-	}
-
-	defer res.Body.Close()
-
-	b, err := ioutil.ReadAll(res.Body)
-
-	if err != nil {
-		return nil, err
-	}
-
-	if err := handleServerException(res, b); err != nil {
-		return nil, err
-	}
-
-	var a []interface{}
-
-	if err := json.Unmarshal(b, &a); err != nil {
-		return nil, err
-	}
-
-	return a, nil
+func upload(s Session, cmd map[string]interface{})  (interface{}, error) {
+	return nil, nil
 }
