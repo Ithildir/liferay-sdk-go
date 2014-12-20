@@ -91,6 +91,10 @@ func NewService(s liferay.Session) *Service {
 
 		#set ($parameterValue = $languageUtil.getParameterName($parameterName))
 
+		#if ($parameterType == $BYTE_SLICE)
+			#set ($parameterValue = "liferay.ToJSONString(${parameterName})")
+		#end
+
 		#if ($parameterType == $JSON_OBJECT_WRAPPER)
 			##t	liferay.MangleObjectWrapper(_params, ${esc.q}$parameterName${esc.q}, ${esc.q}$languageUtil.getJSONWrapperClassName($parameter.type)${esc.q}, $parameterValue)
 		#else

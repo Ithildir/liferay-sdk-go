@@ -6,6 +6,7 @@ import (
 	"errors"
 	"fmt"
 	"net/http"
+	"strconv"
 	"strings"
 )
 
@@ -18,6 +19,24 @@ func (e ServerError) Error() string {
 }
 
 const jsonwsPath string = "api/jsonws"
+
+func ToJSONString(a []byte) string {
+	var buffer bytes.Buffer
+
+	buffer.WriteString("[")
+
+	for i, b := range a {
+		buffer.WriteString(strconv.Itoa(int(b)))
+
+		if i < (len(a) - 1) {
+			buffer.WriteString(", ")
+		}
+	}
+
+	buffer.WriteString("]")
+
+	return buffer.String()
+}
 
 func doRequest(s Session, req *http.Request) (interface{}, error) {
 	s.SetAuth(req)
@@ -116,6 +135,6 @@ func post(s Session, cmds []map[string]interface{}) ([]interface{}, error) {
 	return v.([]interface{}), nil
 }
 
-func upload(s Session, cmd map[string]interface{})  (interface{}, error) {
+func upload(s Session, cmd map[string]interface{}) (interface{}, error) {
 	return nil, nil
 }

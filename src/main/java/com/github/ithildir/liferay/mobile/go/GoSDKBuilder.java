@@ -195,6 +195,7 @@ public class GoSDKBuilder extends BaseBuilder {
 
 		GoUtil goUtil = new GoUtil();
 
+		context.put(BYTE_SLICE, GoUtil.BYTE_SLICE);
 		context.put(ACTIONS, actions);
 		context.put(DISCOVERY, discovery);
 		context.put(ESCAPE_TOOL, new EscapeTool());
@@ -206,6 +207,8 @@ public class GoSDKBuilder extends BaseBuilder {
 
 		return context;
 	}
+
+	protected static final String BYTE_SLICE = "BYTE_SLICE";
 
 	protected static final String PACKAGE = "package";
 
