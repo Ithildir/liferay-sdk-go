@@ -18,8 +18,8 @@ func TestAddFoldersBatch(t *testing.T) {
 
 	service := dlapp.NewService(batch)
 
-	service.AddFolder(groupId, parentFolderId, folderName, "")
-	service.AddFolder(groupId, parentFolderId, folderName2, "")
+	service.AddFolder(groupId, parentFolderId, folderName, "", nil)
+	service.AddFolder(groupId, parentFolderId, folderName2, "", nil)
 
 	array, err := batch.InvokeAll()
 
@@ -45,8 +45,8 @@ func TestAddFoldersBatch(t *testing.T) {
 func deleteFoldersBatch(t *testing.T, batch *liferay.BatchSession) {
 	service := dlapp.NewService(batch)
 
-	service.DeleteFolder(groupId, parentFolderId, folderName)
-	service.DeleteFolder(groupId, parentFolderId, folderName2)
+	service.DeleteFolder2(groupId, parentFolderId, folderName)
+	service.DeleteFolder2(groupId, parentFolderId, folderName2)
 
 	a, err := batch.InvokeAll()
 
