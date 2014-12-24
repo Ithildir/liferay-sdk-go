@@ -92,7 +92,7 @@ func (s *Service) AddPageAttachment(nodeId int64, title string, fileName string,
 		"/wikipage/add-page-attachment": _params,
 	}
 
-	_, err := s.session.Invoke(_cmd)
+	_, err := s.session.Upload(_cmd)
 
 	return err
 }

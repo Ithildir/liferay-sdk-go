@@ -125,7 +125,7 @@ func (s *Service) AddArticle2(groupId int64, folderId int64, classNameId int64, 
 
 	var v map[string]interface{}
 
-	res, err := s.session.Invoke(_cmd)
+	res, err := s.session.Upload(_cmd)
 
 	if err == nil && res != nil {
 		v = res.(map[string]interface{})
@@ -1330,7 +1330,7 @@ func (s *Service) UpdateArticle2(groupId int64, folderId int64, articleId string
 
 	var v map[string]interface{}
 
-	res, err := s.session.Invoke(_cmd)
+	res, err := s.session.Upload(_cmd)
 
 	if err == nil && res != nil {
 		v = res.(map[string]interface{})

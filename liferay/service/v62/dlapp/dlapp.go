@@ -73,7 +73,7 @@ func (s *Service) AddFileEntry2(repositoryId int64, folderId int64, sourceFileNa
 
 	var v map[string]interface{}
 
-	res, err := s.session.Invoke(_cmd)
+	res, err := s.session.Upload(_cmd)
 
 	if err == nil && res != nil {
 		v = res.(map[string]interface{})
@@ -145,7 +145,7 @@ func (s *Service) AddTempFileEntry(groupId int64, folderId int64, fileName strin
 
 	var v map[string]interface{}
 
-	res, err := s.session.Invoke(_cmd)
+	res, err := s.session.Upload(_cmd)
 
 	if err == nil && res != nil {
 		v = res.(map[string]interface{})
@@ -2142,7 +2142,7 @@ func (s *Service) UpdateFileEntry2(fileEntryId int64, sourceFileName string, mim
 
 	var v map[string]interface{}
 
-	res, err := s.session.Invoke(_cmd)
+	res, err := s.session.Upload(_cmd)
 
 	if err == nil && res != nil {
 		v = res.(map[string]interface{})
@@ -2170,7 +2170,7 @@ func (s *Service) UpdateFileEntryAndCheckIn(fileEntryId int64, sourceFileName st
 
 	var v map[string]interface{}
 
-	res, err := s.session.Invoke(_cmd)
+	res, err := s.session.Upload(_cmd)
 
 	if err == nil && res != nil {
 		v = res.(map[string]interface{})

@@ -199,6 +199,7 @@ public class GoSDKBuilder extends BaseBuilder {
 		context.put(ACTIONS, actions);
 		context.put(DISCOVERY, discovery);
 		context.put(ESCAPE_TOOL, new EscapeTool());
+		context.put(IO_READER, GoUtil.IO_READER);
 		context.put(JSON_OBJECT_WRAPPER, GoUtil.JSON_OBJECT_WRAPPER);
 		context.put(LANGUAGE_UTIL, goUtil);
 		context.put(PACKAGE, filter);
@@ -209,6 +210,8 @@ public class GoSDKBuilder extends BaseBuilder {
 	}
 
 	protected static final String BYTE_SLICE = "BYTE_SLICE";
+
+	protected static final String IO_READER = "IO_READER";
 
 	protected static final String PACKAGE = "package";
 

@@ -72,7 +72,7 @@ func (s *Service) UpdateLogo2(groupId int64, privateLayout bool, logo bool, file
 		"/layoutset/update-logo": _params,
 	}
 
-	_, err := s.session.Invoke(_cmd)
+	_, err := s.session.Upload(_cmd)
 
 	return err
 }

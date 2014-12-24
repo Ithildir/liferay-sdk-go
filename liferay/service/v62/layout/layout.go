@@ -667,7 +667,7 @@ func (s *Service) ImportLayouts2(groupId int64, privateLayout bool, parameterMap
 		"/layout/import-layouts": _params,
 	}
 
-	_, err := s.session.Invoke(_cmd)
+	_, err := s.session.Upload(_cmd)
 
 	return err
 }
@@ -687,7 +687,7 @@ func (s *Service) ImportLayoutsInBackground(taskName string, groupId int64, priv
 
 	var v int64
 
-	res, err := s.session.Invoke(_cmd)
+	res, err := s.session.Upload(_cmd)
 
 	if err == nil && res != nil {
 		v = int64(res.(float64))
@@ -707,7 +707,7 @@ func (s *Service) ImportPortletInfo(portletId string, parameterMap map[string]in
 		"/layout/import-portlet-info": _params,
 	}
 
-	_, err := s.session.Invoke(_cmd)
+	_, err := s.session.Upload(_cmd)
 
 	return err
 }
@@ -725,7 +725,7 @@ func (s *Service) ImportPortletInfo2(plid int64, groupId int64, portletId string
 		"/layout/import-portlet-info": _params,
 	}
 
-	_, err := s.session.Invoke(_cmd)
+	_, err := s.session.Upload(_cmd)
 
 	return err
 }
@@ -742,7 +742,7 @@ func (s *Service) ImportPortletInfoInBackground(taskName string, portletId strin
 		"/layout/import-portlet-info-in-background": _params,
 	}
 
-	_, err := s.session.Invoke(_cmd)
+	_, err := s.session.Upload(_cmd)
 
 	return err
 }
@@ -763,7 +763,7 @@ func (s *Service) ImportPortletInfoInBackground2(taskName string, plid int64, gr
 
 	var v int64
 
-	res, err := s.session.Invoke(_cmd)
+	res, err := s.session.Upload(_cmd)
 
 	if err == nil && res != nil {
 		v = int64(res.(float64))
@@ -1167,7 +1167,7 @@ func (s *Service) ValidateImportLayoutsFile(groupId int64, privateLayout bool, p
 
 	var v map[string]interface{}
 
-	res, err := s.session.Invoke(_cmd)
+	res, err := s.session.Upload(_cmd)
 
 	if err == nil && res != nil {
 		v = res.(map[string]interface{})
@@ -1191,7 +1191,7 @@ func (s *Service) ValidateImportPortletInfo(plid int64, groupId int64, portletId
 
 	var v map[string]interface{}
 
-	res, err := s.session.Invoke(_cmd)
+	res, err := s.session.Upload(_cmd)
 
 	if err == nil && res != nil {
 		v = res.(map[string]interface{})

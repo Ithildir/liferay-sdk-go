@@ -75,7 +75,7 @@ func (s *Service) AddItem(groupId int64, categoryId int64, sku string, name stri
 
 	var v map[string]interface{}
 
-	res, err := s.session.Invoke(_cmd)
+	res, err := s.session.Upload(_cmd)
 
 	if err == nil && res != nil {
 		v = res.(map[string]interface{})
@@ -260,7 +260,7 @@ func (s *Service) UpdateItem(itemId int64, groupId int64, categoryId int64, sku 
 
 	var v map[string]interface{}
 
-	res, err := s.session.Invoke(_cmd)
+	res, err := s.session.Upload(_cmd)
 
 	if err == nil && res != nil {
 		v = res.(map[string]interface{})
