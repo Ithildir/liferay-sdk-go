@@ -1,6 +1,7 @@
 package tests
 
 import (
+	"strings"
 	"testing"
 
 	"github.com/ithildir/liferay-sdk-go/liferay"
@@ -24,6 +25,26 @@ func TestAddFileEntryBytes(t *testing.T) {
 
 	if err != nil {
 		t.Fatalf("AddFileEntry returned error: %v", err)
+	}
+
+	if entry["title"] != sourceFileName {
+		t.Fatalf("entry has title %v, want %v", entry["title"], sourceFileName)
+	}
+
+	if err := service.DeleteFileEntry(int64(entry["fileEntryId"].(float64))); err != nil {
+		t.Fatalf("DeleteFileEntry returned error: %v", err)
+	}
+}
+
+func TestAddFileEntryReader(t *testing.T) {
+	service := dlapp.NewService(session)
+
+	r := strings.NewReader("Hello")
+
+	entry, err := service.AddFileEntry2(groupId, parentFolderId, sourceFileName, mimeType, sourceFileName, "", "", r, nil)
+
+	if err != nil {
+		t.Fatalf("AddFileEntry2 returned error: %v", err)
 	}
 
 	if entry["title"] != sourceFileName {

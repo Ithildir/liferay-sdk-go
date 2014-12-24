@@ -1,5 +1,7 @@
 package liferay
 
+import "errors"
+
 type BatchSession struct {
 	cmds []map[string]interface{}
 	*session
@@ -23,4 +25,8 @@ func (s *BatchSession) InvokeAll() ([]interface{}, error) {
 	defer s.Clear()
 
 	return post(s, s.cmds)
+}
+
+func (s *BatchSession) Upload(cmd map[string]interface{}) (interface{}, error) {
+	return nil, errors.New("Can't batch upload requests")
 }

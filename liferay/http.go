@@ -6,6 +6,7 @@ import (
 	"errors"
 	"fmt"
 	"io"
+	"mime/multipart"
 	"net/http"
 	"strconv"
 	"strings"
@@ -143,5 +144,58 @@ func post(s Session, cmds []map[string]interface{}) ([]interface{}, error) {
 }
 
 func upload(s Session, cmd map[string]interface{}) (interface{}, error) {
-	return nil, nil
+	path := getPath(cmd)
+	params := cmd[path].(map[string]interface{})
+
+	url := getURL(s, path)
+
+	r, w := io.Pipe()
+
+	multiWriter := multipart.NewWriter(w)
+
+	errChan := make(chan error, 1)
+
+	go func() {
+		defer w.Close()
+
+		for k, v := range params {
+			switch v := v.(type) {
+			case io.Reader:
+				part, err := multiWriter.CreateFormFile(k, "")
+
+				if err != nil {
+					errChan <- err
+
+					return
+				}
+
+				io.Copy(part, v)
+
+			default:
+				if err := multiWriter.WriteField(k, fmt.Sprintf("%v", v)); err != nil {
+					errChan <- err
+
+					return
+				}
+			}
+		}
+
+		errChan <- multiWriter.Close()
+	}()
+
+	req, err := http.NewRequest("POST", url, r)
+
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Set("Content-Type", multiWriter.FormDataContentType())
+
+	v, err := doRequest(s, req)
+
+	if err != nil {
+		return nil, err
+	}
+
+	return v, <-errChan
 }

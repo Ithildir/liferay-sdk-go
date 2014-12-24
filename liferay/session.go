@@ -9,6 +9,7 @@ type Session interface {
 	Invoke(cmd map[string]interface{}) (interface{}, error)
 	Server() string
 	SetAuth(req *http.Request)
+	Upload(cmd map[string]interface{}) (interface{}, error)
 }
 
 type session struct {
@@ -50,4 +51,8 @@ func (s *session) SetAuth(req *http.Request) {
 	if len(s.username) > 0 && len(s.password) > 0 {
 		req.SetBasicAuth(s.username, s.password)
 	}
+}
+
+func (s *session) Upload(cmd map[string]interface{}) (interface{}, error) {
+	return upload(s, cmd)
 }
