@@ -123,9 +123,9 @@ func post(s Session, cmds []map[string]interface{}) ([]interface{}, error) {
 	go func() {
 		defer w.Close()
 
-		encoder := json.NewEncoder(w)
+		enc := json.NewEncoder(w)
 
-		errChan <- encoder.Encode(cmds)
+		errChan <- enc.Encode(cmds)
 	}()
 
 	req, err := http.NewRequest("POST", url, r)
