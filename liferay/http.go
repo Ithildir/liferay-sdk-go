@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
+	"io"
 	"net/http"
 	"strconv"
 	"strings"
@@ -112,15 +113,21 @@ func handleServerException(res *http.Response, v interface{}) error {
 }
 
 func post(s Session, cmds []map[string]interface{}) ([]interface{}, error) {
-	b, err := json.Marshal(cmds)
-
-	if err != nil {
-		return nil, err
-	}
-
 	url := getURL(s, "/invoke")
 
-	req, err := http.NewRequest("POST", url, bytes.NewReader(b))
+	r, w := io.Pipe()
+
+	errChan := make(chan error, 1)
+
+	go func() {
+		defer w.Close()
+
+		encoder := json.NewEncoder(w)
+
+		errChan <- encoder.Encode(cmds)
+	}()
+
+	req, err := http.NewRequest("POST", url, r)
 
 	if err != nil {
 		return nil, err
@@ -132,7 +139,7 @@ func post(s Session, cmds []map[string]interface{}) ([]interface{}, error) {
 		return nil, err
 	}
 
-	return v.([]interface{}), nil
+	return v.([]interface{}), <-errChan
 }
 
 func upload(s Session, cmd map[string]interface{}) (interface{}, error) {
