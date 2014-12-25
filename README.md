@@ -8,8 +8,7 @@ This repository contains a version of the [Liferay Mobile SDK]
 
 The Liferay Go SDK is an accurate port of the [Android]
 (https://github.com/liferay/liferay-mobile-sdk/tree/master/android) version and
-can be considered feature-complete. Nevertheless, even if it's covered by the
-same unit tests of the official Liferay Mobile SDK, it was created just for fun
+can be considered feature-complete. Nevertheless, it was created just for fun
 and basically as an experiment. Your mileage may vary.
 
 ## Setup
