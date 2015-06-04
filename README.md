@@ -47,8 +47,8 @@ to find the various configuration options available in `gradle.properties`.
 
 ## Use
 
-The Liferay SDK for Windows is an almost line-by-line port of the Android
-version, so more detailed information about usage can be found at [this page]
+The Liferay Go SDK is an almost line-by-line port of the Android version, so
+more detailed information about usage can be found at [this page]
 (https://github.com/Ithildir/liferay-mobile-sdk/tree/master/android#use).
 
 1. Create a `Session` with user credentials:
