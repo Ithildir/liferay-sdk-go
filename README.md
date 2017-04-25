@@ -3,8 +3,8 @@
 <img align="right" width="128" height="128" src="https://raw.githubusercontent.com/Ithildir/liferay-sdk-go/master/logo.png">
 
 This repository contains a version of the [Liferay Mobile SDK]
-(https://github.com/liferay/liferay-mobile-sdk) written in the [Go]
-(http://golang.org) language.
+(https://github.com/liferay/liferay-mobile-sdk) written in the [Go](http://golang.org) 
+language.
 
 The Liferay Go SDK is an accurate port of the [Android]
 (https://github.com/liferay/liferay-mobile-sdk/tree/master/android) version and
